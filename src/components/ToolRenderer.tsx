@@ -499,6 +499,37 @@ function compute(tool: any, s: Record<string, any>) {
         wealthGained: round(fv - monthly * n),
       };
     }
+    case "tax.india.newRegime": {
+      const income = Number(s.annualIncome);
+      if (!Number.isFinite(income)) return { error: "Enter valid income" };
+    
+      let tax = 0;
+    
+      if (income <= 300000) tax = 0;
+      else if (income <= 600000) tax = (income - 300000) * 0.05;
+      else if (income <= 900000) tax = 15000 + (income - 600000) * 0.10;
+      else if (income <= 1200000) tax = 45000 + (income - 900000) * 0.15;
+      else if (income <= 1500000) tax = 90000 + (income - 1200000) * 0.20;
+      else tax = 150000 + (income - 1500000) * 0.30;
+    
+      return { tax: Math.round(tax) };
+    }
+    case "tax.india.oldRegime": {
+      const income = Number(s.taxableIncome);
+      if (!Number.isFinite(income)) return { error: "Enter valid income" };
+    
+      let tax = 0;
+    
+      if (income <= 250000) tax = 0;
+      else if (income <= 500000) tax = (income - 250000) * 0.05;
+      else if (income <= 1000000)
+        tax = 12500 + (income - 500000) * 0.20;
+      else
+        tax = 112500 + (income - 1000000) * 0.30;
+    
+      return { tax: Math.round(tax) };
+    }
+    
     default:
       return { note: `Engine not implemented: ${engineId}` };
   }

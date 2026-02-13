@@ -35,7 +35,25 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
 
       <ToolRenderer tool={tool} />
 
-      <h3 style={{ marginTop: 24 }}>How to use</h3>
+    <div
+      style={{
+        marginTop: 16,
+        marginBottom: 16,
+        padding: 12,
+        border: "1px solid #eee",
+        borderRadius: 12,
+        background: "#fafafa"
+      }}
+    >
+      <div style={{ fontWeight: 700, marginBottom: 6 }}>
+        Sponsored
+      </div>
+      <div style={{ color: "#555" }}>
+        Future ad / affiliate content will appear here.
+      </div>
+    </div>
+
+    <h3 style={{ marginTop: 24 }}>How to use</h3>
       <ol>
         {tool.howTo.map((s: string, i: number) => (
           <li key={i}>{s}</li>
