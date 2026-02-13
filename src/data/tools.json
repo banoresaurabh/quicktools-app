@@ -3519,5 +3519,141 @@
       "howTo": ["Placeholder; next step adds ISO week engine."],
       "faq": [{ "q": "Why placeholder?", "a": "We’ll add this in the next date-tools engine chunk." }],
       "relatedSlugs": ["age-calculator", "days-between-dates", "weeks-between-dates", "date-difference", "date-add-days"]
-    }    
+    },
+    {
+      "slug": "loan-total-interest-calculator",
+      "title": "Total Loan Interest Calculator",
+      "category": "Calculators",
+      "subcategory": "Loans",
+      "description": "Estimate total interest paid over a loan period.",
+      "keywords": ["loan interest calculator", "total interest paid"],
+      "engineId": "finance.loanInterest",
+      "inputsSchema": {
+        "principal": "number",
+        "annualRatePercent": "number",
+        "years": "number"
+      },
+      "computeConfig": {},
+      "howTo": [
+        "Enter loan amount.",
+        "Enter annual interest rate.",
+        "Enter years.",
+        "See total interest estimate."
+      ],
+      "faq": [
+        {
+          "q": "Is this exact?",
+          "a": "This is a simple estimate. Actual EMI loans vary slightly."
+        }
+      ],
+      "relatedSlugs": [
+        "emi-calculator",
+        "loan-affordability-calculator",
+        "down-payment-impact",
+        "compound-interest-calculator",
+        "cagr-calculator"
+      ]
+    },
+    {
+      "slug": "loan-affordability-calculator",
+      "title": "Loan Affordability Calculator",
+      "category": "Calculators",
+      "subcategory": "Loans",
+      "description": "Estimate how much loan you can afford based on monthly EMI budget.",
+      "keywords": ["loan affordability", "how much loan can i afford"],
+      "engineId": "math.formula",
+      "inputsSchema": {
+        "monthlyBudget": "number",
+        "years": "number"
+      },
+      "computeConfig": {
+        "formula": "monthlyBudget * 12 * years",
+        "outputKey": "maxLoan",
+        "decimals": 0
+      },
+      "howTo": [
+        "Enter how much EMI you can pay monthly.",
+        "Enter loan duration in years.",
+        "See rough loan capacity."
+      ],
+      "faq": [
+        {
+          "q": "Is interest included?",
+          "a": "This is a rough principal estimate based on EMI budget."
+        }
+      ],
+      "relatedSlugs": [
+        "emi-calculator",
+        "loan-total-interest-calculator",
+        "salary-hike-calculator",
+        "ctc-to-monthly-gross"
+      ]
+    },
+    {
+      "slug": "down-payment-impact",
+      "title": "Down Payment Impact Calculator",
+      "category": "Calculators",
+      "subcategory": "Loans",
+      "description": "See how down payment reduces loan requirement.",
+      "keywords": ["down payment calculator", "home loan down payment"],
+      "engineId": "math.formula",
+      "inputsSchema": {
+        "propertyPrice": "number",
+        "downPayment": "number"
+      },
+      "computeConfig": {
+        "formula": "propertyPrice - downPayment",
+        "outputKey": "loanNeeded",
+        "decimals": 0
+      },
+      "howTo": [
+        "Enter property price.",
+        "Enter down payment.",
+        "See loan needed."
+      ],
+      "faq": [
+        {
+          "q": "Does this include fees?",
+          "a": "No. This is a basic loan amount estimate."
+        }
+      ],
+      "relatedSlugs": [
+        "emi-calculator",
+        "loan-total-interest-calculator",
+        "loan-affordability-calculator"
+      ]
+    },
+    {
+      "slug": "interest-vs-principal-ratio",
+      "title": "Interest vs Principal Ratio",
+      "category": "Calculators",
+      "subcategory": "Loans",
+      "description": "Estimate interest portion vs principal over loan duration.",
+      "keywords": ["interest vs principal", "loan interest ratio"],
+      "engineId": "finance.loanInterest",
+      "inputsSchema": {
+        "principal": "number",
+        "annualRatePercent": "number",
+        "years": "number"
+      },
+      "computeConfig": {},
+      "howTo": [
+        "Enter loan amount.",
+        "Enter interest rate.",
+        "Enter years.",
+        "See interest vs principal estimate."
+      ],
+      "faq": [
+        {
+          "q": "Why estimate?",
+          "a": "Exact breakdown varies by EMI amortization."
+        }
+      ],
+      "relatedSlugs": [
+        "loan-total-interest-calculator",
+        "emi-calculator",
+        "compound-interest-calculator"
+      ]
+    }
+      
 ]

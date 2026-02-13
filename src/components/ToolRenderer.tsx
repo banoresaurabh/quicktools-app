@@ -650,7 +650,22 @@ function compute(tool: any, s: Record<string, any>) {
     
       return { isoWeek: weekNo, isoYear: date.getUTCFullYear() };
     }
+    case "finance.loanInterest": {
+      const principal = Number(s.principal);
+      const annualRate = Number(s.annualRatePercent) / 100;
+      const years = Number(s.years);
     
+      if (!principal || !annualRate || !years)
+        return { error: "Enter valid inputs." };
+    
+      const totalInterest = principal * annualRate * years;
+      const totalPayment = principal + totalInterest;
+    
+      return {
+        totalInterest: Math.round(totalInterest),
+        totalPayment: Math.round(totalPayment)
+      };
+    }    
     default:
       return { note: `Engine not implemented: ${engineId}` };
   }
