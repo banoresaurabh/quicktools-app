@@ -1,0 +1,3192 @@
+[
+  {
+    "slug": "one-rep-max-calculator",
+    "title": "1RM Calculator",
+    "category": "Calculators",
+    "subcategory": "Fitness",
+    "description": "Estimate your one-rep max (1RM) from weight and reps using Epley and Brzycki formulas.",
+    "keywords": ["1rm", "one rep max", "strength"],
+    "engineId": "fitness.oneRepMax",
+    "inputsSchema": { "weightKg": "number", "reps": "number" },
+    "computeConfig": {},
+    "howTo": [
+      "Enter the weight you lifted.",
+      "Enter how many reps you did.",
+      "See estimated 1RM using 2 formulas."
+    ],
+    "faq": [
+      {
+        "q": "Which formula is better?",
+        "a": "They’re both estimates. Epley often fits higher reps; Brzycki is conservative."
+      },
+      {
+        "q": "Is this exact?",
+        "a": "No—treat as a planning estimate, not a medical/competition metric."
+      }
+    ],
+    "relatedSlugs": [
+      "bmi-calculator",
+      "percentage-increase",
+      "random-number-generator",
+      "date-difference",
+      "tic-tac-toe"
+    ]
+  },
+  {
+    "slug": "emi-calculator",
+    "title": "EMI Calculator",
+    "category": "Calculators",
+    "subcategory": "Finance",
+    "description": "Calculate your monthly EMI from principal, interest rate, and tenure.",
+    "keywords": ["emi", "loan", "monthly payment"],
+    "engineId": "finance.emi",
+    "inputsSchema": {
+      "principal": "number",
+      "annualRatePercent": "number",
+      "tenureMonths": "number"
+    },
+    "computeConfig": {},
+    "howTo": [
+      "Enter loan amount.",
+      "Enter annual interest rate.",
+      "Enter tenure in months.",
+      "Get EMI and totals."
+    ],
+    "faq": [
+      {
+        "q": "What interest rate format?",
+        "a": "Use annual percentage rate (e.g., 9.5)."
+      },
+      { "q": "Does it include fees?", "a": "No, it’s a pure EMI calculation." }
+    ],
+    "relatedSlugs": [
+      "compound-interest-calculator",
+      "simple-interest-calculator",
+      "cagr-calculator",
+      "discount-calculator",
+      "percentage-increase"
+    ]
+  },
+  {
+    "slug": "bmi-calculator",
+    "title": "BMI Calculator",
+    "category": "Calculators",
+    "subcategory": "Health",
+    "description": "Compute BMI from height and weight with a standard category label.",
+    "keywords": ["bmi", "body mass index"],
+    "engineId": "health.bmi",
+    "inputsSchema": { "weightKg": "number", "heightCm": "number" },
+    "computeConfig": {},
+    "howTo": [
+      "Enter your weight (kg).",
+      "Enter your height (cm).",
+      "See BMI and category."
+    ],
+    "faq": [
+      {
+        "q": "Is BMI perfect?",
+        "a": "No—muscular people can read high. Use as a rough screening metric."
+      }
+    ],
+    "relatedSlugs": [
+      "one-rep-max-calculator",
+      "percentage-increase",
+      "date-difference",
+      "uuid-generator",
+      "password-generator"
+    ]
+  },
+  {
+    "slug": "compound-interest-calculator",
+    "title": "Compound Interest Calculator",
+    "category": "Calculators",
+    "subcategory": "Finance",
+    "description": "Calculate future value with compound interest (monthly compounding).",
+    "keywords": ["compound interest", "future value"],
+    "engineId": "finance.compound",
+    "inputsSchema": {
+      "principal": "number",
+      "annualRatePercent": "number",
+      "years": "number"
+    },
+    "computeConfig": {},
+    "howTo": [
+      "Enter principal.",
+      "Enter annual rate.",
+      "Enter years.",
+      "See future value."
+    ],
+    "faq": [
+      { "q": "What compounding frequency?", "a": "Monthly (common default)." }
+    ],
+    "relatedSlugs": [
+      "emi-calculator",
+      "simple-interest-calculator",
+      "cagr-calculator",
+      "percentage-increase",
+      "discount-calculator"
+    ]
+  },
+  {
+    "slug": "simple-interest-calculator",
+    "title": "Simple Interest Calculator",
+    "category": "Calculators",
+    "subcategory": "Finance",
+    "description": "Compute simple interest and total amount.",
+    "keywords": ["simple interest"],
+    "engineId": "finance.simple",
+    "inputsSchema": {
+      "principal": "number",
+      "annualRatePercent": "number",
+      "years": "number"
+    },
+    "computeConfig": {},
+    "howTo": ["Enter principal, rate, and years.", "See interest and total."],
+    "faq": [
+      {
+        "q": "When is simple interest used?",
+        "a": "Some short-term loans or basic calculations."
+      }
+    ],
+    "relatedSlugs": [
+      "compound-interest-calculator",
+      "emi-calculator",
+      "cagr-calculator",
+      "percentage-increase",
+      "discount-calculator"
+    ]
+  },
+  {
+    "slug": "cagr-calculator",
+    "title": "CAGR Calculator",
+    "category": "Calculators",
+    "subcategory": "Finance",
+    "description": "Calculate compound annual growth rate from start value, end value and years.",
+    "keywords": ["cagr", "growth rate"],
+    "engineId": "finance.cagr",
+    "inputsSchema": { "start": "number", "end": "number", "years": "number" },
+    "computeConfig": {},
+    "howTo": [
+      "Enter start value.",
+      "Enter end value.",
+      "Enter years.",
+      "See CAGR%."
+    ],
+    "faq": [{ "q": "Can CAGR be negative?", "a": "Yes, if end < start." }],
+    "relatedSlugs": [
+      "compound-interest-calculator",
+      "percentage-increase",
+      "percentage-decrease",
+      "discount-calculator",
+      "emi-calculator"
+    ]
+  },
+  {
+    "slug": "percentage-increase",
+    "title": "Percentage Increase",
+    "category": "Calculators",
+    "subcategory": "Math",
+    "description": "Find the percentage increase from an old value to a new value.",
+    "keywords": ["percentage increase"],
+    "engineId": "math.percentIncrease",
+    "inputsSchema": { "oldValue": "number", "newValue": "number" },
+    "computeConfig": {},
+    "howTo": [
+      "Enter old value.",
+      "Enter new value.",
+      "See increase % and delta."
+    ],
+    "faq": [
+      {
+        "q": "What if old value is 0?",
+        "a": "Percentage change is undefined; we’ll show an error."
+      }
+    ],
+    "relatedSlugs": [
+      "percentage-decrease",
+      "discount-calculator",
+      "cagr-calculator",
+      "bmi-calculator",
+      "random-number-generator"
+    ]
+  },
+  {
+    "slug": "percentage-decrease",
+    "title": "Percentage Decrease",
+    "category": "Calculators",
+    "subcategory": "Math",
+    "description": "Find the percentage decrease from an old value to a new value.",
+    "keywords": ["percentage decrease"],
+    "engineId": "math.percentDecrease",
+    "inputsSchema": { "oldValue": "number", "newValue": "number" },
+    "computeConfig": {},
+    "howTo": [
+      "Enter old value.",
+      "Enter new value.",
+      "See decrease % and delta."
+    ],
+    "faq": [
+      {
+        "q": "What if old value is 0?",
+        "a": "Percentage change is undefined; we’ll show an error."
+      }
+    ],
+    "relatedSlugs": [
+      "percentage-increase",
+      "discount-calculator",
+      "cagr-calculator",
+      "date-difference",
+      "uuid-generator"
+    ]
+  },
+  {
+    "slug": "discount-calculator",
+    "title": "Discount Calculator",
+    "category": "Calculators",
+    "subcategory": "Shopping",
+    "description": "Calculate final price after discount percentage.",
+    "keywords": ["discount", "sale price"],
+    "engineId": "math.discount",
+    "inputsSchema": { "price": "number", "discountPercent": "number" },
+    "computeConfig": {},
+    "howTo": [
+      "Enter original price.",
+      "Enter discount percent.",
+      "See final price and saved amount."
+    ],
+    "faq": [
+      {
+        "q": "Does it include tax?",
+        "a": "No—this is pre-tax unless you add tax separately."
+      }
+    ],
+    "relatedSlugs": [
+      "percentage-increase",
+      "percentage-decrease",
+      "emi-calculator",
+      "compound-interest-calculator",
+      "random-number-generator"
+    ]
+  },
+  {
+    "slug": "meters-to-feet",
+    "title": "Meters to Feet",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert meters to feet instantly.",
+    "keywords": ["meters to feet", "m to ft"],
+    "engineId": "convert.mToFt",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter meters.", "See feet."],
+    "faq": [{ "q": "What’s the formula?", "a": "feet = meters × 3.28084" }],
+    "relatedSlugs": [
+      "feet-to-meters",
+      "kg-to-lb",
+      "c-to-f",
+      "mb-to-gb",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "feet-to-meters",
+    "title": "Feet to Meters",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert feet to meters instantly.",
+    "keywords": ["feet to meters", "ft to m"],
+    "engineId": "convert.ftToM",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter feet.", "See meters."],
+    "faq": [{ "q": "What’s the formula?", "a": "meters = feet ÷ 3.28084" }],
+    "relatedSlugs": [
+      "meters-to-feet",
+      "kg-to-lb",
+      "f-to-c",
+      "gb-to-mb",
+      "uuid-generator"
+    ]
+  },
+  {
+    "slug": "kg-to-lb",
+    "title": "Kg to Lb",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert kilograms to pounds instantly.",
+    "keywords": ["kg to lb", "kilograms to pounds"],
+    "engineId": "convert.kgToLb",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter kilograms.", "See pounds."],
+    "faq": [{ "q": "What’s the formula?", "a": "lb = kg × 2.20462" }],
+    "relatedSlugs": [
+      "lb-to-kg",
+      "one-rep-max-calculator",
+      "bmi-calculator",
+      "meters-to-feet",
+      "password-generator"
+    ]
+  },
+  {
+    "slug": "lb-to-kg",
+    "title": "Lb to Kg",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert pounds to kilograms instantly.",
+    "keywords": ["lb to kg", "pounds to kilograms"],
+    "engineId": "convert.lbToKg",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter pounds.", "See kilograms."],
+    "faq": [{ "q": "What’s the formula?", "a": "kg = lb ÷ 2.20462" }],
+    "relatedSlugs": [
+      "kg-to-lb",
+      "one-rep-max-calculator",
+      "bmi-calculator",
+      "feet-to-meters",
+      "uuid-generator"
+    ]
+  },
+  {
+    "slug": "c-to-f",
+    "title": "Celsius to Fahrenheit",
+    "category": "Converters",
+    "subcategory": "Temperature",
+    "description": "Convert Celsius to Fahrenheit instantly.",
+    "keywords": ["c to f", "celsius to fahrenheit"],
+    "engineId": "convert.cToF",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter °C.", "See °F."],
+    "faq": [{ "q": "Formula?", "a": "°F = (°C × 9/5) + 32" }],
+    "relatedSlugs": [
+      "f-to-c",
+      "meters-to-feet",
+      "gb-to-mb",
+      "date-difference",
+      "random-number-generator"
+    ]
+  },
+  {
+    "slug": "f-to-c",
+    "title": "Fahrenheit to Celsius",
+    "category": "Converters",
+    "subcategory": "Temperature",
+    "description": "Convert Fahrenheit to Celsius instantly.",
+    "keywords": ["f to c", "fahrenheit to celsius"],
+    "engineId": "convert.fToC",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter °F.", "See °C."],
+    "faq": [{ "q": "Formula?", "a": "°C = (°F − 32) × 5/9" }],
+    "relatedSlugs": [
+      "c-to-f",
+      "feet-to-meters",
+      "mb-to-gb",
+      "uuid-generator",
+      "password-generator"
+    ]
+  },
+  {
+    "slug": "mb-to-gb",
+    "title": "MB to GB",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert megabytes to gigabytes (1 GB = 1024 MB).",
+    "keywords": ["mb to gb"],
+    "engineId": "convert.mbToGb",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter MB.", "See GB."],
+    "faq": [{ "q": "Is it 1000 or 1024?", "a": "We use 1024 (binary GB)." }],
+    "relatedSlugs": [
+      "gb-to-mb",
+      "c-to-f",
+      "meters-to-feet",
+      "uuid-generator",
+      "json-prettify-minify"
+    ]
+  },
+  {
+    "slug": "gb-to-mb",
+    "title": "GB to MB",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert gigabytes to megabytes (1 GB = 1024 MB).",
+    "keywords": ["gb to mb"],
+    "engineId": "convert.gbToMb",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter GB.", "See MB."],
+    "faq": [{ "q": "Is it 1000 or 1024?", "a": "We use 1024 (binary GB)." }],
+    "relatedSlugs": [
+      "mb-to-gb",
+      "f-to-c",
+      "feet-to-meters",
+      "password-generator",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "uuid-generator",
+    "title": "UUID Generator",
+    "category": "Utilities",
+    "subcategory": "Generators",
+    "description": "Generate a UUID (v4) in your browser.",
+    "keywords": ["uuid", "guid"],
+    "engineId": "util.uuid",
+    "inputsSchema": {},
+    "computeConfig": {},
+    "howTo": ["Click generate.", "Copy UUID."],
+    "faq": [
+      {
+        "q": "Is this safe?",
+        "a": "It uses browser crypto APIs (when available)."
+      }
+    ],
+    "relatedSlugs": [
+      "password-generator",
+      "json-prettify-minify",
+      "date-difference",
+      "tic-tac-toe",
+      "meters-to-feet"
+    ]
+  },
+  {
+    "slug": "password-generator",
+    "title": "Password Generator",
+    "category": "Utilities",
+    "subcategory": "Generators",
+    "description": "Generate a random password with options.",
+    "keywords": ["password generator"],
+    "engineId": "util.password",
+    "inputsSchema": { "length": "number", "includeSymbols": "boolean" },
+    "computeConfig": {},
+    "howTo": ["Choose length.", "Toggle symbols.", "Generate and copy."],
+    "faq": [
+      { "q": "Should I use symbols?", "a": "Yes, typically increases entropy." }
+    ],
+    "relatedSlugs": [
+      "uuid-generator",
+      "json-prettify-minify",
+      "one-rep-max-calculator",
+      "kg-to-lb",
+      "truth-or-dare"
+    ]
+  },
+  {
+    "slug": "json-prettify-minify",
+    "title": "JSON Prettify / Minify",
+    "category": "Utilities",
+    "subcategory": "Formatters",
+    "description": "Prettify or minify JSON safely in your browser.",
+    "keywords": ["json prettify", "json minify"],
+    "engineId": "util.json",
+    "inputsSchema": { "json": "string" },
+    "computeConfig": {},
+    "howTo": ["Paste JSON.", "Click prettify or minify.", "Copy result."],
+    "faq": [
+      { "q": "What if JSON is invalid?", "a": "We’ll show an error message." }
+    ],
+    "relatedSlugs": [
+      "uuid-generator",
+      "password-generator",
+      "mb-to-gb",
+      "date-difference",
+      "would-you-rather"
+    ]
+  },
+  {
+    "slug": "date-difference",
+    "title": "Date Difference",
+    "category": "Utilities",
+    "subcategory": "Date/Time",
+    "description": "Find the difference between two dates in days.",
+    "keywords": ["date difference", "days between dates"],
+    "engineId": "date.diff",
+    "inputsSchema": { "date1": "string", "date2": "string" },
+    "computeConfig": {},
+    "howTo": [
+      "Pick the first date.",
+      "Pick the second date.",
+      "See difference in days."
+    ],
+    "faq": [
+      {
+        "q": "Does it handle time zones?",
+        "a": "This uses local date inputs (midnight) and is intended for day counts."
+      }
+    ],
+    "relatedSlugs": [
+      "meters-to-feet",
+      "gb-to-mb",
+      "uuid-generator",
+      "tic-tac-toe",
+      "percentage-increase"
+    ]
+  },
+  {
+    "slug": "random-number-generator",
+    "title": "Random Number Generator",
+    "category": "Utilities",
+    "subcategory": "Generators",
+    "description": "Generate a random integer between min and max.",
+    "keywords": ["random number"],
+    "engineId": "util.randomNumber",
+    "inputsSchema": { "min": "number", "max": "number" },
+    "computeConfig": {},
+    "howTo": ["Enter min and max.", "Click generate."],
+    "faq": [
+      {
+        "q": "Is it cryptographically secure?",
+        "a": "We use Math.random for simplicity in MVP."
+      }
+    ],
+    "relatedSlugs": [
+      "password-generator",
+      "uuid-generator",
+      "percentage-increase",
+      "tic-tac-toe",
+      "truth-or-dare"
+    ]
+  },
+  {
+    "slug": "random-team-splitter",
+    "title": "Random Team Splitter",
+    "category": "Utilities",
+    "subcategory": "Groups",
+    "description": "Paste names and split into two random teams.",
+    "keywords": ["team splitter", "random teams"],
+    "engineId": "util.teamSplit",
+    "inputsSchema": { "names": "string" },
+    "computeConfig": {},
+    "howTo": [
+      "Paste names (one per line).",
+      "Click split.",
+      "Get Team A and Team B."
+    ],
+    "faq": [
+      {
+        "q": "Can I do 3 teams?",
+        "a": "MVP supports 2 teams; we can extend later."
+      }
+    ],
+    "relatedSlugs": [
+      "truth-or-dare",
+      "would-you-rather",
+      "tic-tac-toe",
+      "random-number-generator",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "reaction-time-test",
+    "title": "Reaction Time Test",
+    "category": "Games",
+    "subcategory": "Casual",
+    "description": "Test your reaction time with a simple click game.",
+    "keywords": ["reaction time test"],
+    "engineId": "game.reaction",
+    "inputsSchema": {},
+    "computeConfig": {},
+    "howTo": ["Click start.", "Wait for green.", "Click as fast as you can."],
+    "faq": [
+      {
+        "q": "Is this accurate?",
+        "a": "It’s a browser-based approximation; good for fun comparisons."
+      }
+    ],
+    "relatedSlugs": [
+      "tic-tac-toe",
+      "truth-or-dare",
+      "random-number-generator",
+      "uuid-generator",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "tic-tac-toe",
+    "title": "Tic Tac Toe (2 Player)",
+    "category": "Games",
+    "subcategory": "Local Multiplayer",
+    "description": "Classic tic-tac-toe for two players on one screen.",
+    "keywords": ["tic tac toe", "2 player game"],
+    "engineId": "game.tictactoe",
+    "inputsSchema": {},
+    "computeConfig": {},
+    "howTo": ["Player X starts.", "Take turns.", "First to 3 in a row wins."],
+    "faq": [{ "q": "Is there AI?", "a": "Not in MVP. Local 2-player only." }],
+    "relatedSlugs": [
+      "truth-or-dare",
+      "would-you-rather",
+      "reaction-time-test",
+      "random-team-splitter",
+      "uuid-generator"
+    ]
+  },
+  {
+    "slug": "truth-or-dare",
+    "title": "Truth or Dare",
+    "category": "Games",
+    "subcategory": "Party",
+    "description": "Tap to get a random Truth or Dare prompt for groups.",
+    "keywords": ["truth or dare", "party game"],
+    "engineId": "party.truthDare",
+    "inputsSchema": {},
+    "computeConfig": {},
+    "howTo": ["Tap Truth or Dare.", "Read the prompt.", "Play."],
+    "faq": [
+      {
+        "q": "Can I customize prompts?",
+        "a": "Not in MVP; we can add custom lists later."
+      }
+    ],
+    "relatedSlugs": [
+      "would-you-rather",
+      "random-team-splitter",
+      "tic-tac-toe",
+      "password-generator",
+      "random-number-generator"
+    ]
+  },
+  {
+    "slug": "would-you-rather",
+    "title": "Would You Rather",
+    "category": "Games",
+    "subcategory": "Party",
+    "description": "Random “Would you rather…” questions for group fun.",
+    "keywords": ["would you rather", "party game"],
+    "engineId": "party.wyr",
+    "inputsSchema": {},
+    "computeConfig": {},
+    "howTo": ["Tap next.", "Pick an option.", "Argue your case."],
+    "faq": [
+      {
+        "q": "Are questions family-friendly?",
+        "a": "MVP uses neutral prompts."
+      }
+    ],
+    "relatedSlugs": [
+      "truth-or-dare",
+      "random-team-splitter",
+      "tic-tac-toe",
+      "json-prettify-minify",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "sip-calculator",
+    "title": "SIP Calculator",
+    "category": "Calculators",
+    "subcategory": "Finance",
+    "description": "Calculate future value of monthly SIP investments.",
+    "keywords": ["sip calculator", "mutual fund sip"],
+    "engineId": "finance.sip",
+    "inputsSchema": {
+      "monthlyInvestment": "number",
+      "annualRatePercent": "number",
+      "years": "number"
+    },
+    "computeConfig": {},
+    "howTo": [
+      "Enter monthly investment amount.",
+      "Enter expected annual return.",
+      "Enter number of years."
+    ],
+    "faq": [
+      {
+        "q": "Is SIP guaranteed?",
+        "a": "No. Returns depend on market performance."
+      }
+    ],
+    "relatedSlugs": [
+      "compound-interest-calculator",
+      "emi-calculator",
+      "cagr-calculator",
+      "percentage-increase",
+      "discount-calculator"
+    ]
+  },
+  {
+    "slug": "gst-calculator",
+    "title": "GST Calculator",
+    "category": "Calculators",
+    "subcategory": "Finance",
+    "description": "Add or remove GST from an amount.",
+    "keywords": ["gst calculator"],
+    "engineId": "math.percentIncrease",
+    "inputsSchema": {
+      "oldValue": "number",
+      "newValue": "number"
+    },
+    "computeConfig": {},
+    "howTo": ["Use percent increase to estimate GST impact."],
+    "faq": [
+      { "q": "Supports 18% GST?", "a": "Enter original and GST added value." }
+    ],
+    "relatedSlugs": [
+      "percentage-increase",
+      "discount-calculator",
+      "emi-calculator",
+      "sip-calculator",
+      "compound-interest-calculator"
+    ]
+  },
+  {
+    "slug": "protein-intake-calculator",
+    "title": "Protein Intake Calculator",
+    "category": "Calculators",
+    "subcategory": "Fitness",
+    "description": "Estimate daily protein needs based on body weight.",
+    "keywords": ["protein intake calculator"],
+    "engineId": "convert.kgToLb",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {},
+    "howTo": [
+      "Enter body weight in kg. Multiply result by 0.8–2g per lb based on training."
+    ],
+    "faq": [
+      {
+        "q": "How much protein is ideal?",
+        "a": "0.8–2g per lb bodyweight depending on goals."
+      }
+    ],
+    "relatedSlugs": [
+      "one-rep-max-calculator",
+      "bmi-calculator",
+      "kg-to-lb",
+      "lb-to-kg",
+      "percentage-increase"
+    ]
+  },
+  {
+    "slug": "pace-calculator",
+    "title": "Running Pace Calculator",
+    "category": "Calculators",
+    "subcategory": "Fitness",
+    "description": "Estimate pace from distance and time.",
+    "keywords": ["running pace"],
+    "engineId": "math.percentDecrease",
+    "inputsSchema": {
+      "oldValue": "number",
+      "newValue": "number"
+    },
+    "computeConfig": {},
+    "howTo": ["Enter time and distance values to compare speed change."],
+    "faq": [{ "q": "Is this exact pace?", "a": "Use as rough estimation." }],
+    "relatedSlugs": [
+      "bmi-calculator",
+      "one-rep-max-calculator",
+      "date-difference",
+      "random-number-generator",
+      "uuid-generator"
+    ]
+  },
+  {
+    "slug": "cm-to-inches",
+    "title": "CM to Inches",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert centimeters to inches.",
+    "keywords": ["cm to inches"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.3937007874,
+      "outputKey": "inches",
+      "decimals": 4
+    },
+    "howTo": ["Enter cm value.", "See inches."],
+    "faq": [
+      { "q": "Exact?", "a": "Yes (1 inch = 2.54 cm). Rounded for display." }
+    ],
+    "relatedSlugs": [
+      "inches-to-cm",
+      "meters-to-feet",
+      "feet-to-meters",
+      "kg-to-lb",
+      "lb-to-kg"
+    ]
+  },
+  {
+    "slug": "inches-to-cm",
+    "title": "Inches to CM",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert inches to centimeters.",
+    "keywords": ["inches to cm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 2.54, "outputKey": "cm", "decimals": 2 },
+    "howTo": ["Enter inches value.", "See cm."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 inch = 2.54 cm)." }],
+    "relatedSlugs": [
+      "cm-to-inches",
+      "meters-to-feet",
+      "feet-to-meters",
+      "kg-to-lb",
+      "lb-to-kg"
+    ]
+  },
+  {
+    "slug": "km-to-miles",
+    "title": "KM to Miles",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert kilometers to miles.",
+    "keywords": ["km to miles"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.6213711922,
+      "outputKey": "miles",
+      "decimals": 4
+    },
+    "howTo": ["Enter km value.", "See miles."],
+    "faq": [
+      {
+        "q": "Exact?",
+        "a": "Uses the standard conversion factor; rounded for display."
+      }
+    ],
+    "relatedSlugs": [
+      "miles-to-km",
+      "cm-to-inches",
+      "inches-to-cm",
+      "meters-to-feet",
+      "feet-to-meters"
+    ]
+  },
+  {
+    "slug": "miles-to-km",
+    "title": "Miles to KM",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert miles to kilometers.",
+    "keywords": ["miles to km"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1.609344,
+      "outputKey": "km",
+      "decimals": 4
+    },
+    "howTo": ["Enter miles value.", "See km."],
+    "faq": [
+      {
+        "q": "Exact?",
+        "a": "Uses the standard conversion factor; rounded for display."
+      }
+    ],
+    "relatedSlugs": [
+      "km-to-miles",
+      "cm-to-inches",
+      "inches-to-cm",
+      "meters-to-feet",
+      "feet-to-meters"
+    ]
+  },
+  {
+    "slug": "liters-to-gallons",
+    "title": "Liters to Gallons",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert liters to US gallons.",
+    "keywords": ["liters to gallons"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.2641720524,
+      "outputKey": "gallons",
+      "decimals": 4
+    },
+    "howTo": ["Enter liters.", "See US gallons."],
+    "faq": [{ "q": "US or UK gallons?", "a": "US gallons." }],
+    "relatedSlugs": [
+      "gallons-to-liters",
+      "mb-to-gb",
+      "gb-to-mb",
+      "kg-to-lb",
+      "lb-to-kg"
+    ]
+  },
+  {
+    "slug": "gallons-to-liters",
+    "title": "Gallons to Liters",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert US gallons to liters.",
+    "keywords": ["gallons to liters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 3.785411784,
+      "outputKey": "liters",
+      "decimals": 4
+    },
+    "howTo": ["Enter US gallons.", "See liters."],
+    "faq": [{ "q": "US or UK gallons?", "a": "US gallons." }],
+    "relatedSlugs": [
+      "liters-to-gallons",
+      "mb-to-gb",
+      "gb-to-mb",
+      "kg-to-lb",
+      "lb-to-kg"
+    ]
+  },
+  {
+    "slug": "seconds-to-minutes",
+    "title": "Seconds to Minutes",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert seconds to minutes.",
+    "keywords": ["seconds to minutes"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0166666667,
+      "outputKey": "minutes",
+      "decimals": 4
+    },
+    "howTo": ["Enter seconds.", "See minutes."],
+    "faq": [{ "q": "Exact?", "a": "Yes (divide by 60). Rounded for display." }],
+    "relatedSlugs": [
+      "minutes-to-hours",
+      "date-difference",
+      "random-number-generator",
+      "uuid-generator",
+      "seconds-to-minutes"
+    ]
+  },
+  {
+    "slug": "minutes-to-hours",
+    "title": "Minutes to Hours",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert minutes to hours.",
+    "keywords": ["minutes to hours"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0166666667,
+      "outputKey": "hours",
+      "decimals": 4
+    },
+    "howTo": ["Enter minutes.", "See hours."],
+    "faq": [{ "q": "Exact?", "a": "Yes (divide by 60). Rounded for display." }],
+    "relatedSlugs": [
+      "seconds-to-minutes",
+      "date-difference",
+      "random-number-generator",
+      "uuid-generator",
+      "minutes-to-hours"
+    ]
+  },
+  {
+    "slug": "yards-to-meters",
+    "title": "Yards to Meters",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert yards to meters.",
+    "keywords": ["yards to meters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.9144,
+      "outputKey": "meters",
+      "decimals": 4
+    },
+    "howTo": ["Enter yards.", "See meters."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 yard = 0.9144 meters)." }],
+    "relatedSlugs": [
+      "meters-to-feet",
+      "feet-to-meters",
+      "cm-to-inches",
+      "inches-to-cm",
+      "km-to-miles"
+    ]
+  },
+  {
+    "slug": "meters-to-yards",
+    "title": "Meters to Yards",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert meters to yards.",
+    "keywords": ["meters to yards"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1.0936133,
+      "outputKey": "yards",
+      "decimals": 4
+    },
+    "howTo": ["Enter meters.", "See yards."],
+    "faq": [{ "q": "Exact?", "a": "Rounded for display." }],
+    "relatedSlugs": [
+      "yards-to-meters",
+      "meters-to-feet",
+      "feet-to-meters",
+      "cm-to-inches",
+      "inches-to-cm"
+    ]
+  },
+  {
+    "slug": "mm-to-cm",
+    "title": "MM to CM",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert millimeters to centimeters.",
+    "keywords": ["mm to cm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 0.1, "outputKey": "cm", "decimals": 2 },
+    "howTo": ["Enter millimeters.", "See centimeters."],
+    "faq": [{ "q": "Exact?", "a": "Yes (10 mm = 1 cm)." }],
+    "relatedSlugs": [
+      "cm-to-inches",
+      "inches-to-cm",
+      "meters-to-feet",
+      "feet-to-meters",
+      "km-to-miles"
+    ]
+  },
+  {
+    "slug": "cm-to-mm",
+    "title": "CM to MM",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert centimeters to millimeters.",
+    "keywords": ["cm to mm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 10, "outputKey": "mm", "decimals": 2 },
+    "howTo": ["Enter centimeters.", "See millimeters."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 cm = 10 mm)." }],
+    "relatedSlugs": [
+      "mm-to-cm",
+      "cm-to-inches",
+      "inches-to-cm",
+      "meters-to-feet",
+      "feet-to-meters"
+    ]
+  },
+  {
+    "slug": "km-to-meters",
+    "title": "KM to Meters",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert kilometers to meters.",
+    "keywords": ["km to meters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1000,
+      "outputKey": "meters",
+      "decimals": 2
+    },
+    "howTo": ["Enter kilometers.", "See meters."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "meters-to-yards",
+      "meters-to-feet",
+      "km-to-miles",
+      "miles-to-km",
+      "cm-to-mm"
+    ]
+  },
+  {
+    "slug": "meters-to-km",
+    "title": "Meters to KM",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert meters to kilometers.",
+    "keywords": ["meters to km"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 0.001, "outputKey": "km", "decimals": 4 },
+    "howTo": ["Enter meters.", "See kilometers."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "km-to-meters",
+      "km-to-miles",
+      "miles-to-km",
+      "cm-to-mm",
+      "mm-to-cm"
+    ]
+  },
+  {
+    "slug": "ounces-to-grams",
+    "title": "Ounces to Grams",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert ounces to grams.",
+    "keywords": ["oz to grams"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 28.3495,
+      "outputKey": "grams",
+      "decimals": 2
+    },
+    "howTo": ["Enter ounces.", "See grams."],
+    "faq": [{ "q": "Exact?", "a": "Rounded for display." }],
+    "relatedSlugs": [
+      "grams-to-ounces",
+      "kg-to-lb",
+      "lb-to-kg",
+      "cm-to-mm",
+      "meters-to-feet"
+    ]
+  },
+  {
+    "slug": "grams-to-ounces",
+    "title": "Grams to Ounces",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert grams to ounces.",
+    "keywords": ["grams to oz"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.035274,
+      "outputKey": "ounces",
+      "decimals": 4
+    },
+    "howTo": ["Enter grams.", "See ounces."],
+    "faq": [{ "q": "Exact?", "a": "Rounded for display." }],
+    "relatedSlugs": [
+      "ounces-to-grams",
+      "kg-to-lb",
+      "lb-to-kg",
+      "cm-to-mm",
+      "meters-to-feet"
+    ]
+  },
+  {
+    "slug": "stones-to-kg",
+    "title": "Stones to KG",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert stones to kilograms.",
+    "keywords": ["stones to kg"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 6.35029,
+      "outputKey": "kg",
+      "decimals": 2
+    },
+    "howTo": ["Enter stones.", "See kilograms."],
+    "faq": [{ "q": "Exact?", "a": "Rounded." }],
+    "relatedSlugs": [
+      "kg-to-lb",
+      "lb-to-kg",
+      "grams-to-ounces",
+      "ounces-to-grams",
+      "meters-to-feet"
+    ]
+  },
+  {
+    "slug": "kg-to-stones",
+    "title": "KG to Stones",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert kilograms to stones.",
+    "keywords": ["kg to stones"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.157473,
+      "outputKey": "stones",
+      "decimals": 4
+    },
+    "howTo": ["Enter kg.", "See stones."],
+    "faq": [{ "q": "Exact?", "a": "Rounded." }],
+    "relatedSlugs": [
+      "stones-to-kg",
+      "kg-to-lb",
+      "lb-to-kg",
+      "grams-to-ounces",
+      "ounces-to-grams"
+    ]
+  },
+  {
+    "slug": "hours-to-minutes",
+    "title": "Hours to Minutes",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert hours to minutes.",
+    "keywords": ["hours to minutes"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 60,
+      "outputKey": "minutes",
+      "decimals": 2
+    },
+    "howTo": ["Enter hours.", "See minutes."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "minutes-to-hours",
+      "seconds-to-minutes",
+      "date-difference",
+      "random-number-generator",
+      "uuid-generator"
+    ]
+  },
+  {
+    "slug": "days-to-hours",
+    "title": "Days to Hours",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert days to hours.",
+    "keywords": ["days to hours"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 24, "outputKey": "hours", "decimals": 2 },
+    "howTo": ["Enter days.", "See hours."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "hours-to-minutes",
+      "minutes-to-hours",
+      "seconds-to-minutes",
+      "date-difference",
+      "random-number-generator"
+    ]
+  },
+  {
+    "slug": "hours-to-days",
+    "title": "Hours to Days",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert hours to days.",
+    "keywords": ["hours to days"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0416667,
+      "outputKey": "days",
+      "decimals": 4
+    },
+    "howTo": ["Enter hours.", "See days."],
+    "faq": [{ "q": "Exact?", "a": "Rounded." }],
+    "relatedSlugs": [
+      "days-to-hours",
+      "hours-to-minutes",
+      "minutes-to-hours",
+      "date-difference",
+      "random-number-generator"
+    ]
+  },
+  {
+    "slug": "weeks-to-days",
+    "title": "Weeks to Days",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert weeks to days.",
+    "keywords": ["weeks to days"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 7, "outputKey": "days", "decimals": 2 },
+    "howTo": ["Enter weeks.", "See days."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "days-to-hours",
+      "hours-to-days",
+      "minutes-to-hours",
+      "seconds-to-minutes",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "days-to-weeks",
+    "title": "Days to Weeks",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert days to weeks.",
+    "keywords": ["days to weeks"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.142857,
+      "outputKey": "weeks",
+      "decimals": 4
+    },
+    "howTo": ["Enter days.", "See weeks."],
+    "faq": [{ "q": "Exact?", "a": "Rounded." }],
+    "relatedSlugs": [
+      "weeks-to-days",
+      "days-to-hours",
+      "hours-to-days",
+      "minutes-to-hours",
+      "seconds-to-minutes"
+    ]
+  },
+  {
+    "slug": "months-to-days",
+    "title": "Months to Days",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert months to days (avg 30.44).",
+    "keywords": ["months to days"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 30.44,
+      "outputKey": "days",
+      "decimals": 2
+    },
+    "howTo": ["Enter months.", "See days."],
+    "faq": [{ "q": "Exact?", "a": "Average value used." }],
+    "relatedSlugs": [
+      "days-to-weeks",
+      "weeks-to-days",
+      "hours-to-days",
+      "date-difference",
+      "minutes-to-hours"
+    ]
+  },
+  {
+    "slug": "days-to-months",
+    "title": "Days to Months",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert days to months (avg 30.44).",
+    "keywords": ["days to months"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.032854,
+      "outputKey": "months",
+      "decimals": 4
+    },
+    "howTo": ["Enter days.", "See months."],
+    "faq": [{ "q": "Exact?", "a": "Average value used." }],
+    "relatedSlugs": [
+      "months-to-days",
+      "weeks-to-days",
+      "days-to-hours",
+      "hours-to-days",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "years-to-days",
+    "title": "Years to Days",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert years to days.",
+    "keywords": ["years to days"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 365, "outputKey": "days", "decimals": 2 },
+    "howTo": ["Enter years.", "See days."],
+    "faq": [{ "q": "Leap years?", "a": "Basic 365-day approximation." }],
+    "relatedSlugs": [
+      "days-to-years",
+      "days-to-months",
+      "months-to-days",
+      "date-difference",
+      "weeks-to-days"
+    ]
+  },
+  {
+    "slug": "days-to-years",
+    "title": "Days to Years",
+    "category": "Converters",
+    "subcategory": "Time",
+    "description": "Convert days to years.",
+    "keywords": ["days to years"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.00273973,
+      "outputKey": "years",
+      "decimals": 4
+    },
+    "howTo": ["Enter days.", "See years."],
+    "faq": [{ "q": "Leap years?", "a": "Approximation used." }],
+    "relatedSlugs": [
+      "years-to-days",
+      "days-to-months",
+      "months-to-days",
+      "weeks-to-days",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "kb-to-mb",
+    "title": "KB to MB",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert kilobytes to megabytes.",
+    "keywords": ["kb to mb"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0009765625,
+      "outputKey": "mb",
+      "decimals": 4
+    },
+    "howTo": ["Enter KB.", "See MB."],
+    "faq": [{ "q": "1024 based?", "a": "Yes." }],
+    "relatedSlugs": [
+      "mb-to-gb",
+      "gb-to-mb",
+      "mb-to-kb",
+      "bytes-to-kb",
+      "kb-to-bytes"
+    ]
+  },
+  {
+    "slug": "mb-to-kb",
+    "title": "MB to KB",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert megabytes to kilobytes.",
+    "keywords": ["mb to kb"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 1024, "outputKey": "kb", "decimals": 2 },
+    "howTo": ["Enter MB.", "See KB."],
+    "faq": [{ "q": "1024 based?", "a": "Yes." }],
+    "relatedSlugs": [
+      "kb-to-mb",
+      "mb-to-gb",
+      "gb-to-mb",
+      "bytes-to-kb",
+      "kb-to-bytes"
+    ]
+  },
+  {
+    "slug": "bytes-to-kb",
+    "title": "Bytes to KB",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert bytes to kilobytes.",
+    "keywords": ["bytes to kb"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0009765625,
+      "outputKey": "kb",
+      "decimals": 4
+    },
+    "howTo": ["Enter bytes.", "See KB."],
+    "faq": [{ "q": "1024 based?", "a": "Yes." }],
+    "relatedSlugs": [
+      "kb-to-mb",
+      "mb-to-kb",
+      "mb-to-gb",
+      "gb-to-mb",
+      "kb-to-bytes"
+    ]
+  },
+  {
+    "slug": "kb-to-bytes",
+    "title": "KB to Bytes",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert kilobytes to bytes.",
+    "keywords": ["kb to bytes"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1024,
+      "outputKey": "bytes",
+      "decimals": 2
+    },
+    "howTo": ["Enter KB.", "See bytes."],
+    "faq": [{ "q": "1024 based?", "a": "Yes." }],
+    "relatedSlugs": [
+      "bytes-to-kb",
+      "kb-to-mb",
+      "mb-to-kb",
+      "mb-to-gb",
+      "gb-to-mb"
+    ]
+  },
+  {
+    "slug": "gb-to-tb",
+    "title": "GB to TB",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert gigabytes to terabytes.",
+    "keywords": ["gb to tb"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0009765625,
+      "outputKey": "tb",
+      "decimals": 4
+    },
+    "howTo": ["Enter GB.", "See TB."],
+    "faq": [{ "q": "1024 based?", "a": "Yes." }],
+    "relatedSlugs": ["tb-to-gb", "mb-to-gb", "gb-to-mb", "kb-to-mb", "mb-to-kb"]
+  },
+  {
+    "slug": "tb-to-gb",
+    "title": "TB to GB",
+    "category": "Converters",
+    "subcategory": "Data",
+    "description": "Convert terabytes to gigabytes.",
+    "keywords": ["tb to gb"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 1024, "outputKey": "gb", "decimals": 2 },
+    "howTo": ["Enter TB.", "See GB."],
+    "faq": [{ "q": "1024 based?", "a": "Yes." }],
+    "relatedSlugs": ["gb-to-tb", "mb-to-gb", "gb-to-mb", "kb-to-mb", "mb-to-kb"]
+  },
+  {
+    "slug": "mbps-to-kbps",
+    "title": "Mbps to Kbps",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert megabits per second to kilobits per second.",
+    "keywords": ["mbps to kbps"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 1000, "outputKey": "kbps", "decimals": 2 },
+    "howTo": ["Enter Mbps.", "See Kbps."],
+    "faq": [{ "q": "Is it 1000?", "a": "Yes for network speeds." }],
+    "relatedSlugs": [
+      "kbps-to-mbps",
+      "mb-to-gb",
+      "gb-to-mb",
+      "kb-to-mb",
+      "mb-to-kb"
+    ]
+  },
+  {
+    "slug": "kbps-to-mbps",
+    "title": "Kbps to Mbps",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert kilobits per second to megabits per second.",
+    "keywords": ["kbps to mbps"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.001,
+      "outputKey": "mbps",
+      "decimals": 4
+    },
+    "howTo": ["Enter Kbps.", "See Mbps."],
+    "faq": [{ "q": "Is it 1000?", "a": "Yes for network speeds." }],
+    "relatedSlugs": [
+      "mbps-to-kbps",
+      "mb-to-gb",
+      "gb-to-mb",
+      "kb-to-mb",
+      "mb-to-kb"
+    ]
+  },
+  {
+    "slug": "sqft-to-sqm",
+    "title": "Square Feet to Square Meters",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square feet to square meters.",
+    "keywords": ["sqft to sqm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.092903,
+      "outputKey": "sqm",
+      "decimals": 4
+    },
+    "howTo": ["Enter square feet.", "See square meters."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "sqm-to-sqft",
+      "meters-to-feet",
+      "feet-to-meters",
+      "yards-to-meters",
+      "meters-to-yards"
+    ]
+  },
+  {
+    "slug": "sqm-to-sqft",
+    "title": "Square Meters to Square Feet",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square meters to square feet.",
+    "keywords": ["sqm to sqft"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 10.7639,
+      "outputKey": "sqft",
+      "decimals": 2
+    },
+    "howTo": ["Enter square meters.", "See square feet."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "sqft-to-sqm",
+      "meters-to-feet",
+      "feet-to-meters",
+      "yards-to-meters",
+      "meters-to-yards"
+    ]
+  },
+  {
+    "slug": "acre-to-sqm",
+    "title": "Acres to Square Meters",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert acres to square meters.",
+    "keywords": ["acre to sqm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 4046.86,
+      "outputKey": "sqm",
+      "decimals": 2
+    },
+    "howTo": ["Enter acres.", "See square meters."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "sqm-to-sqft",
+      "sqft-to-sqm",
+      "yards-to-meters",
+      "meters-to-yards",
+      "km-to-meters"
+    ]
+  },
+  {
+    "slug": "sqm-to-acre",
+    "title": "Square Meters to Acres",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square meters to acres.",
+    "keywords": ["sqm to acre"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.000247105,
+      "outputKey": "acres",
+      "decimals": 6
+    },
+    "howTo": ["Enter square meters.", "See acres."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "acre-to-sqm",
+      "sqft-to-sqm",
+      "sqm-to-sqft",
+      "yards-to-meters",
+      "meters-to-yards"
+    ]
+  },
+  {
+    "slug": "liters-to-ml",
+    "title": "Liters to ML",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert liters to milliliters.",
+    "keywords": ["liters to ml"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 1000, "outputKey": "ml", "decimals": 2 },
+    "howTo": ["Enter liters.", "See ml."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "ml-to-liters",
+      "gallons-to-liters",
+      "liters-to-gallons",
+      "cm-to-mm",
+      "mm-to-cm"
+    ]
+  },
+  {
+    "slug": "ml-to-liters",
+    "title": "ML to Liters",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert milliliters to liters.",
+    "keywords": ["ml to liters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.001,
+      "outputKey": "liters",
+      "decimals": 4
+    },
+    "howTo": ["Enter ml.", "See liters."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "liters-to-ml",
+      "gallons-to-liters",
+      "liters-to-gallons",
+      "cm-to-mm",
+      "mm-to-cm"
+    ]
+  },
+  {
+    "slug": "cups-to-ml",
+    "title": "Cups to ML",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert US cups to milliliters.",
+    "keywords": ["cups to ml"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 236.5882365,
+      "outputKey": "ml",
+      "decimals": 2
+    },
+    "howTo": ["Enter cups.", "See ml."],
+    "faq": [{ "q": "Which cup standard?", "a": "US legal cup (~236.59 ml)." }],
+    "relatedSlugs": [
+      "ml-to-cups",
+      "liters-to-ml",
+      "ml-to-liters",
+      "gallons-to-liters",
+      "liters-to-gallons"
+    ]
+  },
+  {
+    "slug": "ml-to-cups",
+    "title": "ML to Cups",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert milliliters to US cups.",
+    "keywords": ["ml to cups"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0042267528,
+      "outputKey": "cups",
+      "decimals": 4
+    },
+    "howTo": ["Enter ml.", "See cups."],
+    "faq": [{ "q": "Which cup standard?", "a": "US legal cup." }],
+    "relatedSlugs": [
+      "cups-to-ml",
+      "liters-to-ml",
+      "ml-to-liters",
+      "gallons-to-liters",
+      "liters-to-gallons"
+    ]
+  },
+  {
+    "slug": "tbsp-to-ml",
+    "title": "Tablespoons to ML",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert US tablespoons to milliliters.",
+    "keywords": ["tbsp to ml", "tablespoon to ml"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 14.7867648,
+      "outputKey": "ml",
+      "decimals": 2
+    },
+    "howTo": ["Enter tablespoons.", "See ml."],
+    "faq": [{ "q": "US tablespoon?", "a": "Yes (~14.79 ml)." }],
+    "relatedSlugs": [
+      "tsp-to-ml",
+      "ml-to-liters",
+      "liters-to-ml",
+      "cups-to-ml",
+      "ml-to-cups"
+    ]
+  },
+  {
+    "slug": "tsp-to-ml",
+    "title": "Teaspoons to ML",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert US teaspoons to milliliters.",
+    "keywords": ["tsp to ml", "teaspoon to ml"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 4.9289216,
+      "outputKey": "ml",
+      "decimals": 2
+    },
+    "howTo": ["Enter teaspoons.", "See ml."],
+    "faq": [{ "q": "US teaspoon?", "a": "Yes (~4.93 ml)." }],
+    "relatedSlugs": [
+      "tbsp-to-ml",
+      "ml-to-liters",
+      "liters-to-ml",
+      "cups-to-ml",
+      "ml-to-cups"
+    ]
+  },
+  {
+    "slug": "mph-to-kmph",
+    "title": "MPH to KM/H",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert miles per hour to kilometers per hour.",
+    "keywords": ["mph to kmph", "mph to km/h"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1.609344,
+      "outputKey": "kmph",
+      "decimals": 4
+    },
+    "howTo": ["Enter mph.", "See km/h."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "kmph-to-mph",
+      "km-to-miles",
+      "miles-to-km",
+      "meters-to-km",
+      "km-to-meters"
+    ]
+  },
+  {
+    "slug": "kmph-to-mph",
+    "title": "KM/H to MPH",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert kilometers per hour to miles per hour.",
+    "keywords": ["kmph to mph", "km/h to mph"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.6213711922,
+      "outputKey": "mph",
+      "decimals": 4
+    },
+    "howTo": ["Enter km/h.", "See mph."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "mph-to-kmph",
+      "km-to-miles",
+      "miles-to-km",
+      "meters-to-km",
+      "km-to-meters"
+    ]
+  },
+  {
+    "slug": "watts-to-hp",
+    "title": "Watts to Horsepower",
+    "category": "Converters",
+    "subcategory": "Power",
+    "description": "Convert watts to mechanical horsepower.",
+    "keywords": ["watts to hp"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0013410221,
+      "outputKey": "hp",
+      "decimals": 4
+    },
+    "howTo": ["Enter watts.", "See horsepower."],
+    "faq": [{ "q": "Which horsepower?", "a": "Mechanical horsepower." }],
+    "relatedSlugs": [
+      "hp-to-watts",
+      "kw-to-watts",
+      "watts-to-kw",
+      "kbps-to-mbps",
+      "mbps-to-kbps"
+    ]
+  },
+  {
+    "slug": "hp-to-watts",
+    "title": "Horsepower to Watts",
+    "category": "Converters",
+    "subcategory": "Power",
+    "description": "Convert mechanical horsepower to watts.",
+    "keywords": ["hp to watts"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 745.699872,
+      "outputKey": "watts",
+      "decimals": 2
+    },
+    "howTo": ["Enter horsepower.", "See watts."],
+    "faq": [{ "q": "Which horsepower?", "a": "Mechanical horsepower." }],
+    "relatedSlugs": [
+      "watts-to-hp",
+      "kw-to-watts",
+      "watts-to-kw",
+      "kbps-to-mbps",
+      "mbps-to-kbps"
+    ]
+  },
+  {
+    "slug": "watts-to-kw",
+    "title": "Watts to kW",
+    "category": "Converters",
+    "subcategory": "Power",
+    "description": "Convert watts to kilowatts.",
+    "keywords": ["watts to kw"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 0.001, "outputKey": "kw", "decimals": 4 },
+    "howTo": ["Enter watts.", "See kW."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "kw-to-watts",
+      "hp-to-watts",
+      "watts-to-hp",
+      "mbps-to-kbps",
+      "kbps-to-mbps"
+    ]
+  },
+  {
+    "slug": "kw-to-watts",
+    "title": "kW to Watts",
+    "category": "Converters",
+    "subcategory": "Power",
+    "description": "Convert kilowatts to watts.",
+    "keywords": ["kw to watts"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1000,
+      "outputKey": "watts",
+      "decimals": 2
+    },
+    "howTo": ["Enter kW.", "See watts."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "watts-to-kw",
+      "hp-to-watts",
+      "watts-to-hp",
+      "mbps-to-kbps",
+      "kbps-to-mbps"
+    ]
+  },
+  {
+    "slug": "fahrenheit-to-kelvin",
+    "title": "Fahrenheit to Kelvin",
+    "category": "Converters",
+    "subcategory": "Temperature",
+    "description": "Convert Fahrenheit to Kelvin.",
+    "keywords": ["fahrenheit to kelvin", "f to k"],
+    "engineId": "convert.affine",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.5555555556,
+      "offset": 255.3722222222,
+      "outputKey": "kelvin",
+      "decimals": 4
+    },
+    "howTo": ["Enter °F.", "See Kelvin."],
+    "faq": [{ "q": "Formula?", "a": "K = (F − 32) × 5/9 + 273.15" }],
+    "relatedSlugs": [
+      "kelvin-to-fahrenheit",
+      "f-to-c",
+      "c-to-f",
+      "celsius-to-kelvin",
+      "kelvin-to-celsius"
+    ]
+  },
+  {
+    "slug": "celsius-to-kelvin",
+    "title": "Celsius to Kelvin",
+    "category": "Converters",
+    "subcategory": "Temperature",
+    "description": "Convert Celsius to Kelvin.",
+    "keywords": ["celsius to kelvin", "c to k"],
+    "engineId": "convert.affine",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1,
+      "offset": 273.15,
+      "outputKey": "kelvin",
+      "decimals": 4
+    },
+    "howTo": ["Enter °C.", "See Kelvin."],
+    "faq": [{ "q": "Formula?", "a": "K = °C + 273.15" }],
+    "relatedSlugs": [
+      "kelvin-to-celsius",
+      "c-to-f",
+      "f-to-c",
+      "fahrenheit-to-kelvin",
+      "kelvin-to-fahrenheit"
+    ]
+  },
+  {
+    "slug": "psi-to-bar",
+    "title": "PSI to Bar",
+    "category": "Converters",
+    "subcategory": "Pressure",
+    "description": "Convert PSI to bar.",
+    "keywords": ["psi to bar"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0689475729,
+      "outputKey": "bar",
+      "decimals": 4
+    },
+    "howTo": ["Enter PSI.", "See bar."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "bar-to-psi",
+      "watts-to-kw",
+      "kw-to-watts",
+      "mph-to-kmph",
+      "kmph-to-mph"
+    ]
+  },
+  {
+    "slug": "bar-to-psi",
+    "title": "Bar to PSI",
+    "category": "Converters",
+    "subcategory": "Pressure",
+    "description": "Convert bar to PSI.",
+    "keywords": ["bar to psi"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 14.5037738,
+      "outputKey": "psi",
+      "decimals": 4
+    },
+    "howTo": ["Enter bar.", "See PSI."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "psi-to-bar",
+      "watts-to-kw",
+      "kw-to-watts",
+      "mph-to-kmph",
+      "kmph-to-mph"
+    ]
+  },
+  {
+    "slug": "newton-to-kgf",
+    "title": "Newtons to kgf",
+    "category": "Converters",
+    "subcategory": "Force",
+    "description": "Convert newtons to kilogram-force (kgf).",
+    "keywords": ["newton to kgf", "n to kgf"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.1019716213,
+      "outputKey": "kgf",
+      "decimals": 4
+    },
+    "howTo": ["Enter newtons.", "See kgf."],
+    "faq": [{ "q": "Exact?", "a": "Standard gravity approximation." }],
+    "relatedSlugs": [
+      "kgf-to-newton",
+      "watts-to-hp",
+      "hp-to-watts",
+      "kg-to-lb",
+      "lb-to-kg"
+    ]
+  },
+  {
+    "slug": "kgf-to-newton",
+    "title": "kgf to Newtons",
+    "category": "Converters",
+    "subcategory": "Force",
+    "description": "Convert kilogram-force (kgf) to newtons.",
+    "keywords": ["kgf to newton", "kgf to n"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 9.80665,
+      "outputKey": "newtons",
+      "decimals": 4
+    },
+    "howTo": ["Enter kgf.", "See newtons."],
+    "faq": [{ "q": "Exact?", "a": "Standard gravity approximation." }],
+    "relatedSlugs": [
+      "newton-to-kgf",
+      "watts-to-hp",
+      "hp-to-watts",
+      "kg-to-lb",
+      "lb-to-kg"
+    ]
+  },
+  {
+    "slug": "cal-to-kj",
+    "title": "Calories to kJ",
+    "category": "Converters",
+    "subcategory": "Energy",
+    "description": "Convert calories (kcal) to kilojoules.",
+    "keywords": ["calories to kj", "kcal to kj"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 4.184, "outputKey": "kj", "decimals": 3 },
+    "howTo": ["Enter kcal.", "See kJ."],
+    "faq": [
+      { "q": "kcal or cal?", "a": "This assumes dietary Calories (kcal)." }
+    ],
+    "relatedSlugs": [
+      "kj-to-cal",
+      "cal-to-kj",
+      "bmi-calculator",
+      "one-rep-max-calculator",
+      "protein-intake-calculator"
+    ]
+  },
+  {
+    "slug": "kj-to-cal",
+    "title": "kJ to Calories",
+    "category": "Converters",
+    "subcategory": "Energy",
+    "description": "Convert kilojoules to calories (kcal).",
+    "keywords": ["kj to calories", "kj to kcal"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.2390057361,
+      "outputKey": "kcal",
+      "decimals": 4
+    },
+    "howTo": ["Enter kJ.", "See kcal."],
+    "faq": [
+      { "q": "kcal or cal?", "a": "This outputs dietary Calories (kcal)." }
+    ],
+    "relatedSlugs": [
+      "cal-to-kj",
+      "bmi-calculator",
+      "one-rep-max-calculator",
+      "protein-intake-calculator",
+      "kg-to-lb"
+    ]
+  },
+  {
+    "slug": "usd-to-inr",
+    "title": "USD to INR (Static)",
+    "category": "Converters",
+    "subcategory": "Currency",
+    "description": "Convert USD to INR using a static rate (no live fetching).",
+    "keywords": ["usd to inr"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 83, "outputKey": "inr", "decimals": 2 },
+    "howTo": ["Enter USD.", "See INR (static)."],
+    "faq": [
+      {
+        "q": "Is this live?",
+        "a": "No. Static placeholder rate (we can add live later)."
+      }
+    ],
+    "relatedSlugs": [
+      "inr-to-usd",
+      "percentage-increase",
+      "percentage-decrease",
+      "emi-calculator",
+      "sip-calculator"
+    ]
+  },
+  {
+    "slug": "inr-to-usd",
+    "title": "INR to USD (Static)",
+    "category": "Converters",
+    "subcategory": "Currency",
+    "description": "Convert INR to USD using a static rate (no live fetching).",
+    "keywords": ["inr to usd"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0120481928,
+      "outputKey": "usd",
+      "decimals": 4
+    },
+    "howTo": ["Enter INR.", "See USD (static)."],
+    "faq": [
+      {
+        "q": "Is this live?",
+        "a": "No. Static placeholder rate (we can add live later)."
+      }
+    ],
+    "relatedSlugs": [
+      "usd-to-inr",
+      "percentage-increase",
+      "percentage-decrease",
+      "emi-calculator",
+      "sip-calculator"
+    ]
+  },
+  {
+    "slug": "lbs-to-grams",
+    "title": "Pounds to Grams",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert pounds (lb) to grams.",
+    "keywords": ["lb to grams", "pounds to grams"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 453.59237,
+      "outputKey": "grams",
+      "decimals": 2
+    },
+    "howTo": ["Enter pounds.", "See grams."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "grams-to-lb",
+      "kg-to-lb",
+      "lb-to-kg",
+      "ounces-to-grams",
+      "grams-to-ounces"
+    ]
+  },
+  {
+    "slug": "grams-to-lb",
+    "title": "Grams to Pounds",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert grams to pounds (lb).",
+    "keywords": ["grams to lb", "grams to pounds"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0022046226,
+      "outputKey": "lb",
+      "decimals": 6
+    },
+    "howTo": ["Enter grams.", "See pounds."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "lbs-to-grams",
+      "kg-to-lb",
+      "lb-to-kg",
+      "grams-to-ounces",
+      "ounces-to-grams"
+    ]
+  },
+  {
+    "slug": "kg-to-grams",
+    "title": "KG to Grams",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert kilograms to grams.",
+    "keywords": ["kg to grams"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1000,
+      "outputKey": "grams",
+      "decimals": 2
+    },
+    "howTo": ["Enter kg.", "See grams."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "grams-to-kg",
+      "kg-to-lb",
+      "lb-to-kg",
+      "ounces-to-grams",
+      "grams-to-ounces"
+    ]
+  },
+  {
+    "slug": "grams-to-kg",
+    "title": "Grams to KG",
+    "category": "Converters",
+    "subcategory": "Weight",
+    "description": "Convert grams to kilograms.",
+    "keywords": ["grams to kg"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 0.001, "outputKey": "kg", "decimals": 4 },
+    "howTo": ["Enter grams.", "See kg."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "kg-to-grams",
+      "kg-to-lb",
+      "lb-to-kg",
+      "grams-to-ounces",
+      "ounces-to-grams"
+    ]
+  },
+  {
+    "slug": "feet-to-inches",
+    "title": "Feet to Inches",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert feet to inches.",
+    "keywords": ["feet to inches", "ft to inches"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 12, "outputKey": "inches", "decimals": 2 },
+    "howTo": ["Enter feet.", "See inches."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 ft = 12 in)." }],
+    "relatedSlugs": [
+      "inches-to-feet",
+      "feet-to-meters",
+      "meters-to-feet",
+      "cm-to-inches",
+      "inches-to-cm"
+    ]
+  },
+  {
+    "slug": "inches-to-feet",
+    "title": "Inches to Feet",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert inches to feet.",
+    "keywords": ["inches to feet", "in to ft"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0833333333,
+      "outputKey": "feet",
+      "decimals": 4
+    },
+    "howTo": ["Enter inches.", "See feet."],
+    "faq": [{ "q": "Exact?", "a": "Yes (divide by 12)." }],
+    "relatedSlugs": [
+      "feet-to-inches",
+      "feet-to-meters",
+      "meters-to-feet",
+      "cm-to-inches",
+      "inches-to-cm"
+    ]
+  },
+  {
+    "slug": "meters-to-cm",
+    "title": "Meters to CM",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert meters to centimeters.",
+    "keywords": ["meters to cm", "m to cm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 100, "outputKey": "cm", "decimals": 2 },
+    "howTo": ["Enter meters.", "See cm."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "cm-to-mm",
+      "mm-to-cm",
+      "cm-to-inches",
+      "inches-to-cm",
+      "meters-to-km"
+    ]
+  },
+  {
+    "slug": "cm-to-meters",
+    "title": "CM to Meters",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert centimeters to meters.",
+    "keywords": ["cm to meters", "cm to m"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.01,
+      "outputKey": "meters",
+      "decimals": 4
+    },
+    "howTo": ["Enter cm.", "See meters."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "meters-to-cm",
+      "cm-to-mm",
+      "mm-to-cm",
+      "cm-to-inches",
+      "meters-to-km"
+    ]
+  },
+  {
+    "slug": "mm-to-inches",
+    "title": "MM to Inches",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert millimeters to inches.",
+    "keywords": ["mm to inches"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0393700787,
+      "outputKey": "inches",
+      "decimals": 4
+    },
+    "howTo": ["Enter mm.", "See inches."],
+    "faq": [{ "q": "Exact?", "a": "Uses 1 inch = 25.4 mm." }],
+    "relatedSlugs": [
+      "inches-to-mm",
+      "cm-to-inches",
+      "inches-to-cm",
+      "cm-to-mm",
+      "mm-to-cm"
+    ]
+  },
+  {
+    "slug": "kelvin-to-celsius",
+    "title": "Kelvin to Celsius",
+    "category": "Converters",
+    "subcategory": "Temperature",
+    "description": "Convert Kelvin to Celsius.",
+    "keywords": ["kelvin to celsius", "k to c"],
+    "engineId": "convert.affine",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1,
+      "offset": -273.15,
+      "outputKey": "celsius",
+      "decimals": 4
+    },
+    "howTo": ["Enter K.", "See °C."],
+    "faq": [{ "q": "Formula?", "a": "°C = K − 273.15" }],
+    "relatedSlugs": [
+      "celsius-to-kelvin",
+      "kelvin-to-fahrenheit",
+      "fahrenheit-to-kelvin",
+      "c-to-f",
+      "f-to-c"
+    ]
+  },
+  {
+    "slug": "kelvin-to-fahrenheit",
+    "title": "Kelvin to Fahrenheit",
+    "category": "Converters",
+    "subcategory": "Temperature",
+    "description": "Convert Kelvin to Fahrenheit.",
+    "keywords": ["kelvin to fahrenheit", "k to f"],
+    "engineId": "convert.affine",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1.8,
+      "offset": -459.67,
+      "outputKey": "fahrenheit",
+      "decimals": 4
+    },
+    "howTo": ["Enter K.", "See °F."],
+    "faq": [{ "q": "Formula?", "a": "°F = K × 9/5 − 459.67" }],
+    "relatedSlugs": [
+      "fahrenheit-to-kelvin",
+      "kelvin-to-celsius",
+      "celsius-to-kelvin",
+      "c-to-f",
+      "f-to-c"
+    ]
+  },
+  {
+    "slug": "inches-to-mm",
+    "title": "Inches to MM",
+    "category": "Converters",
+    "subcategory": "Length",
+    "description": "Convert inches to millimeters.",
+    "keywords": ["inches to mm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 25.4, "outputKey": "mm", "decimals": 2 },
+    "howTo": ["Enter inches.", "See mm."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 inch = 25.4 mm)." }],
+    "relatedSlugs": [
+      "mm-to-inches",
+      "cm-to-inches",
+      "inches-to-cm",
+      "cm-to-mm",
+      "mm-to-cm"
+    ]
+  },
+  {
+    "slug": "lpm-to-gpm",
+    "title": "L/min to GPM",
+    "category": "Converters",
+    "subcategory": "Flow",
+    "description": "Convert liters per minute to US gallons per minute.",
+    "keywords": ["lpm to gpm", "l/min to gpm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.2641720524,
+      "outputKey": "gpm",
+      "decimals": 4
+    },
+    "howTo": ["Enter L/min.", "See GPM."],
+    "faq": [{ "q": "US gallons?", "a": "Yes." }],
+    "relatedSlugs": [
+      "gpm-to-lpm",
+      "liters-to-gallons",
+      "gallons-to-liters",
+      "liters-to-ml",
+      "ml-to-liters"
+    ]
+  },
+  {
+    "slug": "gpm-to-lpm",
+    "title": "GPM to L/min",
+    "category": "Converters",
+    "subcategory": "Flow",
+    "description": "Convert US gallons per minute to liters per minute.",
+    "keywords": ["gpm to lpm", "gpm to l/min"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 3.785411784,
+      "outputKey": "lpm",
+      "decimals": 4
+    },
+    "howTo": ["Enter GPM.", "See L/min."],
+    "faq": [{ "q": "US gallons?", "a": "Yes." }],
+    "relatedSlugs": [
+      "lpm-to-gpm",
+      "liters-to-gallons",
+      "gallons-to-liters",
+      "liters-to-ml",
+      "ml-to-liters"
+    ]
+  },
+  {
+    "slug": "square-inches-to-sqcm",
+    "title": "Square Inches to Square CM",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square inches to square centimeters.",
+    "keywords": ["sq in to sq cm", "square inches to square cm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 6.4516,
+      "outputKey": "sqcm",
+      "decimals": 4
+    },
+    "howTo": ["Enter square inches.", "See square cm."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 in² = 6.4516 cm²)." }],
+    "relatedSlugs": [
+      "sqcm-to-square-inches",
+      "sqft-to-sqm",
+      "sqm-to-sqft",
+      "cm-to-inches",
+      "inches-to-cm"
+    ]
+  },
+  {
+    "slug": "sqcm-to-square-inches",
+    "title": "Square CM to Square Inches",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square centimeters to square inches.",
+    "keywords": ["sq cm to sq in", "square cm to square inches"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.15500031,
+      "outputKey": "sqin",
+      "decimals": 6
+    },
+    "howTo": ["Enter square cm.", "See square inches."],
+    "faq": [{ "q": "Exact?", "a": "Standard factor; rounded." }],
+    "relatedSlugs": [
+      "square-inches-to-sqcm",
+      "sqft-to-sqm",
+      "sqm-to-sqft",
+      "cm-to-inches",
+      "inches-to-cm"
+    ]
+  },
+  {
+    "slug": "hectare-to-acre",
+    "title": "Hectares to Acres",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert hectares to acres.",
+    "keywords": ["hectare to acre", "ha to acre"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 2.47105381,
+      "outputKey": "acres",
+      "decimals": 6
+    },
+    "howTo": ["Enter hectares.", "See acres."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion." }],
+    "relatedSlugs": [
+      "acre-to-hectare",
+      "acre-to-sqm",
+      "sqm-to-acre",
+      "sqft-to-sqm",
+      "sqm-to-sqft"
+    ]
+  },
+  {
+    "slug": "acre-to-hectare",
+    "title": "Acres to Hectares",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert acres to hectares.",
+    "keywords": ["acre to hectare"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.4046856422,
+      "outputKey": "hectares",
+      "decimals": 6
+    },
+    "howTo": ["Enter acres.", "See hectares."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion." }],
+    "relatedSlugs": [
+      "hectare-to-acre",
+      "acre-to-sqm",
+      "sqm-to-acre",
+      "sqft-to-sqm",
+      "sqm-to-sqft"
+    ]
+  },
+  {
+    "slug": "psi-to-kpa",
+    "title": "PSI to kPa",
+    "category": "Converters",
+    "subcategory": "Pressure",
+    "description": "Convert PSI to kilopascals (kPa).",
+    "keywords": ["psi to kpa"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 6.8947572932,
+      "outputKey": "kpa",
+      "decimals": 4
+    },
+    "howTo": ["Enter PSI.", "See kPa."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "kpa-to-psi",
+      "psi-to-bar",
+      "bar-to-psi",
+      "watts-to-kw",
+      "kw-to-watts"
+    ]
+  },
+  {
+    "slug": "kpa-to-psi",
+    "title": "kPa to PSI",
+    "category": "Converters",
+    "subcategory": "Pressure",
+    "description": "Convert kilopascals (kPa) to PSI.",
+    "keywords": ["kpa to psi"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.1450377377,
+      "outputKey": "psi",
+      "decimals": 6
+    },
+    "howTo": ["Enter kPa.", "See PSI."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "psi-to-kpa",
+      "psi-to-bar",
+      "bar-to-psi",
+      "watts-to-kw",
+      "kw-to-watts"
+    ]
+  },
+  {
+    "slug": "meters-per-second-to-kmph",
+    "title": "m/s to km/h",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert meters per second to kilometers per hour.",
+    "keywords": ["m/s to km/h", "mps to kmph"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 3.6, "outputKey": "kmph", "decimals": 4 },
+    "howTo": ["Enter m/s.", "See km/h."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "kmph-to-meters-per-second",
+      "mph-to-kmph",
+      "kmph-to-mph",
+      "km-to-miles",
+      "miles-to-km"
+    ]
+  },
+  {
+    "slug": "kmph-to-meters-per-second",
+    "title": "km/h to m/s",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert kilometers per hour to meters per second.",
+    "keywords": ["km/h to m/s", "kmph to mps"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.2777777778,
+      "outputKey": "mps",
+      "decimals": 6
+    },
+    "howTo": ["Enter km/h.", "See m/s."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "meters-per-second-to-kmph",
+      "mph-to-kmph",
+      "kmph-to-mph",
+      "km-to-miles",
+      "miles-to-km"
+    ]
+  },
+  {
+    "slug": "sqm-to-hectare",
+    "title": "Square Meters to Hectares",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square meters to hectares.",
+    "keywords": ["sqm to hectare", "square meters to hectares"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0001,
+      "outputKey": "hectares",
+      "decimals": 6
+    },
+    "howTo": ["Enter square meters.", "See hectares."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 hectare = 10,000 m²)." }],
+    "relatedSlugs": [
+      "hectare-to-acre",
+      "acre-to-hectare",
+      "acre-to-sqm",
+      "sqm-to-acre",
+      "sqft-to-sqm"
+    ]
+  },
+  {
+    "slug": "hectare-to-sqm",
+    "title": "Hectares to Square Meters",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert hectares to square meters.",
+    "keywords": ["hectare to sqm", "hectares to square meters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 10000, "outputKey": "sqm", "decimals": 2 },
+    "howTo": ["Enter hectares.", "See square meters."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "sqm-to-hectare",
+      "hectare-to-acre",
+      "acre-to-hectare",
+      "sqft-to-sqm",
+      "sqm-to-sqft"
+    ]
+  },
+  {
+    "slug": "sqkm-to-sqm",
+    "title": "Square KM to Square Meters",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square kilometers to square meters.",
+    "keywords": ["sq km to sq m", "square km to square meters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1000000,
+      "outputKey": "sqm",
+      "decimals": 2
+    },
+    "howTo": ["Enter km².", "See m²."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "sqm-to-sqkm",
+      "acre-to-sqm",
+      "sqm-to-acre",
+      "sqft-to-sqm",
+      "sqm-to-sqft"
+    ]
+  },
+  {
+    "slug": "sqm-to-sqkm",
+    "title": "Square Meters to Square KM",
+    "category": "Converters",
+    "subcategory": "Area",
+    "description": "Convert square meters to square kilometers.",
+    "keywords": ["sq m to sq km", "square meters to square km"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.000001,
+      "outputKey": "sqkm",
+      "decimals": 8
+    },
+    "howTo": ["Enter m².", "See km²."],
+    "faq": [{ "q": "Exact?", "a": "Yes." }],
+    "relatedSlugs": [
+      "sqkm-to-sqm",
+      "acre-to-sqm",
+      "sqm-to-acre",
+      "sqft-to-sqm",
+      "sqm-to-sqft"
+    ]
+  },
+  {
+    "slug": "liters-to-quarts",
+    "title": "Liters to Quarts",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert liters to US quarts.",
+    "keywords": ["liters to quarts"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1.0566882094,
+      "outputKey": "quarts",
+      "decimals": 4
+    },
+    "howTo": ["Enter liters.", "See quarts."],
+    "faq": [{ "q": "US quarts?", "a": "Yes." }],
+    "relatedSlugs": [
+      "quarts-to-liters",
+      "liters-to-gallons",
+      "gallons-to-liters",
+      "liters-to-ml",
+      "ml-to-liters"
+    ]
+  },
+  {
+    "slug": "quarts-to-liters",
+    "title": "Quarts to Liters",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert US quarts to liters.",
+    "keywords": ["quarts to liters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.946352946,
+      "outputKey": "liters",
+      "decimals": 4
+    },
+    "howTo": ["Enter quarts.", "See liters."],
+    "faq": [{ "q": "US quarts?", "a": "Yes." }],
+    "relatedSlugs": [
+      "liters-to-quarts",
+      "liters-to-gallons",
+      "gallons-to-liters",
+      "liters-to-ml",
+      "ml-to-liters"
+    ]
+  },
+  {
+    "slug": "liters-to-pints",
+    "title": "Liters to Pints",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert liters to US pints.",
+    "keywords": ["liters to pints"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 2.1133764189,
+      "outputKey": "pints",
+      "decimals": 4
+    },
+    "howTo": ["Enter liters.", "See pints."],
+    "faq": [{ "q": "US pints?", "a": "Yes." }],
+    "relatedSlugs": [
+      "pints-to-liters",
+      "liters-to-gallons",
+      "gallons-to-liters",
+      "cups-to-ml",
+      "ml-to-cups"
+    ]
+  },
+  {
+    "slug": "pints-to-liters",
+    "title": "Pints to Liters",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert US pints to liters.",
+    "keywords": ["pints to liters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.473176473,
+      "outputKey": "liters",
+      "decimals": 4
+    },
+    "howTo": ["Enter pints.", "See liters."],
+    "faq": [{ "q": "US pints?", "a": "Yes." }],
+    "relatedSlugs": [
+      "liters-to-pints",
+      "liters-to-gallons",
+      "gallons-to-liters",
+      "cups-to-ml",
+      "ml-to-cups"
+    ]
+  },
+  {
+    "slug": "liters-to-ounces",
+    "title": "Liters to Fluid Ounces",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert liters to US fluid ounces.",
+    "keywords": ["liters to ounces", "liters to fl oz"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 33.814022702,
+      "outputKey": "fl_oz",
+      "decimals": 4
+    },
+    "howTo": ["Enter liters.", "See fl oz."],
+    "faq": [{ "q": "US fluid ounces?", "a": "Yes." }],
+    "relatedSlugs": [
+      "ounces-to-liters",
+      "cups-to-ml",
+      "ml-to-cups",
+      "liters-to-ml",
+      "ml-to-liters"
+    ]
+  },
+  {
+    "slug": "ounces-to-liters",
+    "title": "Fluid Ounces to Liters",
+    "category": "Converters",
+    "subcategory": "Volume",
+    "description": "Convert US fluid ounces to liters.",
+    "keywords": ["ounces to liters", "fl oz to liters"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0295735296,
+      "outputKey": "liters",
+      "decimals": 6
+    },
+    "howTo": ["Enter fl oz.", "See liters."],
+    "faq": [{ "q": "US fluid ounces?", "a": "Yes." }],
+    "relatedSlugs": [
+      "liters-to-ounces",
+      "cups-to-ml",
+      "ml-to-cups",
+      "liters-to-ml",
+      "ml-to-liters"
+    ]
+  },
+  {
+    "slug": "mph-to-mps",
+    "title": "MPH to m/s",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert miles per hour to meters per second.",
+    "keywords": ["mph to m/s", "mph to mps"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.44704,
+      "outputKey": "mps",
+      "decimals": 6
+    },
+    "howTo": ["Enter mph.", "See m/s."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "mps-to-mph",
+      "mph-to-kmph",
+      "kmph-to-mph",
+      "meters-per-second-to-kmph",
+      "kmph-to-meters-per-second"
+    ]
+  },
+  {
+    "slug": "mps-to-mph",
+    "title": "m/s to MPH",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert meters per second to miles per hour.",
+    "keywords": ["m/s to mph", "mps to mph"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 2.2369362921,
+      "outputKey": "mph",
+      "decimals": 4
+    },
+    "howTo": ["Enter m/s.", "See mph."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "mph-to-mps",
+      "mph-to-kmph",
+      "kmph-to-mph",
+      "meters-per-second-to-kmph",
+      "kmph-to-meters-per-second"
+    ]
+  },
+  {
+    "slug": "knots-to-kmph",
+    "title": "Knots to KM/H",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert knots to kilometers per hour.",
+    "keywords": ["knots to kmph"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 1.852,
+      "outputKey": "kmph",
+      "decimals": 4
+    },
+    "howTo": ["Enter knots.", "See km/h."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "kmph-to-knots",
+      "mph-to-kmph",
+      "kmph-to-mph",
+      "meters-per-second-to-kmph",
+      "kmph-to-meters-per-second"
+    ]
+  },
+  {
+    "slug": "kmph-to-knots",
+    "title": "KM/H to Knots",
+    "category": "Converters",
+    "subcategory": "Speed",
+    "description": "Convert kilometers per hour to knots.",
+    "keywords": ["kmph to knots"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.5399568035,
+      "outputKey": "knots",
+      "decimals": 6
+    },
+    "howTo": ["Enter km/h.", "See knots."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "knots-to-kmph",
+      "mph-to-kmph",
+      "kmph-to-mph",
+      "meters-per-second-to-kmph",
+      "kmph-to-meters-per-second"
+    ]
+  },
+  {
+    "slug": "psi-to-atm",
+    "title": "PSI to ATM",
+    "category": "Converters",
+    "subcategory": "Pressure",
+    "description": "Convert PSI to standard atmospheres (atm).",
+    "keywords": ["psi to atm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0680459639,
+      "outputKey": "atm",
+      "decimals": 6
+    },
+    "howTo": ["Enter PSI.", "See atm."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "atm-to-psi",
+      "psi-to-kpa",
+      "kpa-to-psi",
+      "psi-to-bar",
+      "bar-to-psi"
+    ]
+  },
+  {
+    "slug": "atm-to-psi",
+    "title": "ATM to PSI",
+    "category": "Converters",
+    "subcategory": "Pressure",
+    "description": "Convert standard atmospheres (atm) to PSI.",
+    "keywords": ["atm to psi"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 14.6959487755,
+      "outputKey": "psi",
+      "decimals": 6
+    },
+    "howTo": ["Enter atm.", "See PSI."],
+    "faq": [{ "q": "Exact?", "a": "Standard conversion factor." }],
+    "relatedSlugs": [
+      "psi-to-atm",
+      "psi-to-kpa",
+      "kpa-to-psi",
+      "psi-to-bar",
+      "bar-to-psi"
+    ]
+  },
+  {
+    "slug": "joules-to-kwh",
+    "title": "Joules to kWh",
+    "category": "Converters",
+    "subcategory": "Energy",
+    "description": "Convert joules to kilowatt-hours (kWh).",
+    "keywords": ["joules to kwh"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0000002777777778,
+      "outputKey": "kwh",
+      "decimals": 10
+    },
+    "howTo": ["Enter joules.", "See kWh."],
+    "faq": [{ "q": "Why so small?", "a": "1 kWh = 3.6 million joules." }],
+    "relatedSlugs": [
+      "kwh-to-joules",
+      "watts-to-kw",
+      "kw-to-watts",
+      "cal-to-kj",
+      "kj-to-cal"
+    ]
+  },
+  {
+    "slug": "kwh-to-joules",
+    "title": "kWh to Joules",
+    "category": "Converters",
+    "subcategory": "Energy",
+    "description": "Convert kilowatt-hours (kWh) to joules.",
+    "keywords": ["kwh to joules"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 3600000,
+      "outputKey": "joules",
+      "decimals": 2
+    },
+    "howTo": ["Enter kWh.", "See joules."],
+    "faq": [{ "q": "Exact?", "a": "Yes (1 kWh = 3.6e6 J)." }],
+    "relatedSlugs": [
+      "joules-to-kwh",
+      "watts-to-kw",
+      "kw-to-watts",
+      "cal-to-kj",
+      "kj-to-cal"
+    ]
+  },
+  {
+    "slug": "ppm-to-percent",
+    "title": "PPM to Percent",
+    "category": "Converters",
+    "subcategory": "Chemistry",
+    "description": "Convert parts per million (ppm) to percent.",
+    "keywords": ["ppm to percent"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": {
+      "multiplier": 0.0001,
+      "outputKey": "percent",
+      "decimals": 6
+    },
+    "howTo": ["Enter ppm.", "See percent."],
+    "faq": [{ "q": "Formula?", "a": "percent = ppm / 10,000." }],
+    "relatedSlugs": [
+      "percent-to-ppm",
+      "percentage-increase",
+      "percentage-decrease",
+      "random-number-generator",
+      "date-difference"
+    ]
+  },
+  {
+    "slug": "percent-to-ppm",
+    "title": "Percent to PPM",
+    "category": "Converters",
+    "subcategory": "Chemistry",
+    "description": "Convert percent to parts per million (ppm).",
+    "keywords": ["percent to ppm"],
+    "engineId": "convert.linear",
+    "inputsSchema": { "value": "number" },
+    "computeConfig": { "multiplier": 10000, "outputKey": "ppm", "decimals": 2 },
+    "howTo": ["Enter percent.", "See ppm."],
+    "faq": [{ "q": "Formula?", "a": "ppm = percent × 10,000." }],
+    "relatedSlugs": [
+      "ppm-to-percent",
+      "percentage-increase",
+      "percentage-decrease",
+      "random-number-generator",
+      "date-difference"
+    ]
+  }
+]
