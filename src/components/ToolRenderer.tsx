@@ -24,7 +24,7 @@ export default function ToolRenderer({ tool }: { tool: Tool }) {
   if (tool.engineId === 'game.reaction') return <ReactionTest />;
 
   // Build a simple form from inputsSchema
-  const inputs = tool.inputsSchema || {};
+  const inputs = (tool.inputsSchema ?? {}) as Record<string, string>;
   const keys = Object.keys(inputs);
 
   return (
