@@ -574,7 +574,83 @@ function compute(tool: any, s: Record<string, any>) {
         totalWeeks,
         remainingDays: remDays
       };
-    }    
+    }
+    case "date.addDays": {
+      const dateStr = String(s.date || "");
+      const days = Number(s.days);
+    
+      if (!dateStr) return { error: "Pick a date." };
+      if (!Number.isFinite(days)) return { error: "Enter valid days." };
+    
+      const d = new Date(dateStr + "T00:00:00");
+      if (isNaN(d.getTime())) return { error: "Invalid date." };
+    
+      d.setDate(d.getDate() + Math.trunc(days));
+    
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+    
+      return { resultDate: `${yyyy}-${mm}-${dd}` };
+    }
+    case "date.workdays": {
+      const d1 = String(s.date1 || "");
+      const d2 = String(s.date2 || "");
+      if (!d1 || !d2) return { error: "Pick both dates." };
+    
+      const a = new Date(d1 + "T00:00:00");
+      const b = new Date(d2 + "T00:00:00");
+      if (isNaN(a.getTime()) || isNaN(b.getTime())) return { error: "Invalid dates." };
+    
+      let start = a, end = b;
+      if (start > end) [start, end] = [end, start];
+    
+      let count = 0;
+      const cur = new Date(start);
+      while (cur <= end) {
+        const day = cur.getDay(); // 0 Sun .. 6 Sat
+        if (day !== 0 && day !== 6) count++;
+        cur.setDate(cur.getDate() + 1);
+      }
+      return { workdays: count };
+    }
+    case "date.nextBirthday": {
+      const dobStr = String(s.dob || "");
+      const asOfStr = String(s.asOf || "");
+      if (!dobStr || !asOfStr) return { error: "Pick both dates." };
+    
+      const dob = new Date(dobStr + "T00:00:00");
+      const asOf = new Date(asOfStr + "T00:00:00");
+      if (isNaN(dob.getTime()) || isNaN(asOf.getTime())) return { error: "Invalid dates." };
+    
+      const thisYear = asOf.getFullYear();
+      let next = new Date(thisYear, dob.getMonth(), dob.getDate());
+      if (next < asOf) next = new Date(thisYear + 1, dob.getMonth(), dob.getDate());
+    
+      const msPerDay = 24 * 60 * 60 * 1000;
+      const daysUntil = Math.round((next.getTime() - asOf.getTime()) / msPerDay);
+    
+      return {
+        nextBirthday: `${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, "0")}-${String(next.getDate()).padStart(2, "0")}`,
+        daysUntil
+      };
+    }
+    case "date.isoWeek": {
+      const dateStr = String(s.date || "");
+      if (!dateStr) return { error: "Pick a date." };
+      const d = new Date(dateStr + "T00:00:00");
+      if (isNaN(d.getTime())) return { error: "Invalid date." };
+    
+      // ISO week algorithm
+      const date = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+      const dayNum = date.getUTCDay() || 7; // Mon=1..Sun=7
+      date.setUTCDate(date.getUTCDate() + 4 - dayNum);
+      const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+      const weekNo = Math.ceil((((date.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+    
+      return { isoWeek: weekNo, isoYear: date.getUTCFullYear() };
+    }
+    
     default:
       return { note: `Engine not implemented: ${engineId}` };
   }
