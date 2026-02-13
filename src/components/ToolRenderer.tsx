@@ -15,13 +15,13 @@ export default function ToolRenderer({ tool }: { tool: Tool }) {
 
   const set = (k: string, v: any) => setState((s) => ({ ...s, [k]: v }));
 
+  const output = useMemo(() => compute(tool, state), [tool, state]);
+
   // Special engines with custom UI (games)
   if (tool.engineId === 'game.tictactoe') return <TicTacToe />;
   if (tool.engineId === 'party.truthDare') return <TruthDare />;
   if (tool.engineId === 'party.wyr') return <WouldYouRather />;
   if (tool.engineId === 'game.reaction') return <ReactionTest />;
-
-  const output = useMemo(() => compute(tool, state), [tool, state]);
 
   // Build a simple form from inputsSchema
   const inputs = tool.inputsSchema || {};
