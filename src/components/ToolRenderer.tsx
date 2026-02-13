@@ -529,7 +529,52 @@ function compute(tool: any, s: Record<string, any>) {
     
       return { tax: Math.round(tax) };
     }
+    case "date.age": {
+      const d1 = String(s.date1 || "");
+      const d2 = String(s.date2 || "");
+      if (!d1 || !d2) return { error: "Pick both dates." };
     
+      const a = new Date(d1 + "T00:00:00");
+      const b = new Date(d2 + "T00:00:00");
+      if (isNaN(a.getTime()) || isNaN(b.getTime())) return { error: "Invalid dates." };
+    
+      // Ensure start <= end
+      let start = a, end = b;
+      if (start > end) [start, end] = [end, start];
+    
+      const y1 = start.getFullYear(), m1 = start.getMonth(), day1 = start.getDate();
+      const y2 = end.getFullYear(), m2 = end.getMonth(), day2 = end.getDate();
+    
+      let years = y2 - y1;
+      let months = m2 - m1;
+      let days = day2 - day1;
+    
+      // Borrow days from previous month if needed
+      if (days < 0) {
+        const prevMonth = new Date(y2, m2, 0); // last day of previous month
+        days += prevMonth.getDate();
+        months -= 1;
+      }
+      if (months < 0) {
+        months += 12;
+        years -= 1;
+      }
+    
+      const msPerDay = 24 * 60 * 60 * 1000;
+      const totalDays = Math.round((end.getTime() - start.getTime()) / msPerDay);
+    
+      const totalWeeks = Math.floor(totalDays / 7);
+      const remDays = totalDays % 7;
+    
+      return {
+        years,
+        months,
+        days,
+        totalDays,
+        totalWeeks,
+        remainingDays: remDays
+      };
+    }    
     default:
       return { note: `Engine not implemented: ${engineId}` };
   }
