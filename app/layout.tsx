@@ -12,11 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div style={{ maxWidth: 980, margin: "0 auto", padding: 16 }}>
           <header style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 16 }}>
             <h1 style={{ margin: 0, fontSize: 28 }}>QuickTools</h1>
-            <span style={{ color: "#666" }}>MVP</span>
           </header>
           {children}
           <footer style={{ marginTop: 32, paddingTop: 16, borderTop: "1px solid #eee", color: "#777" }}>
-            <small>QuickTools • Built for scale (MVP first)</small>
+            <small>QuickTools • Built for scale</small>
           </footer>
         </div>
       </body>

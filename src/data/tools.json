@@ -540,7 +540,7 @@
     "faq": [
       {
         "q": "Is it cryptographically secure?",
-        "a": "We use Math.random for simplicity in MVP."
+        "a": "We use Math.random for simplicity"
       }
     ],
     "relatedSlugs": [
@@ -569,7 +569,7 @@
     "faq": [
       {
         "q": "Can I do 3 teams?",
-        "a": "MVP supports 2 teams; we can extend later."
+        "a": "Currently we only support 2 teams"
       }
     ],
     "relatedSlugs": [
@@ -616,7 +616,7 @@
     "inputsSchema": {},
     "computeConfig": {},
     "howTo": ["Player X starts.", "Take turns.", "First to 3 in a row wins."],
-    "faq": [{ "q": "Is there AI?", "a": "Not in MVP. Local 2-player only." }],
+    "faq": [{ "q": "Is there AI?", "a": "No, local 2-player only." }],
     "relatedSlugs": [
       "truth-or-dare",
       "would-you-rather",
@@ -639,7 +639,7 @@
     "faq": [
       {
         "q": "Can I customize prompts?",
-        "a": "Not in MVP; we can add custom lists later."
+        "a": "Not supported at the moment"
       }
     ],
     "relatedSlugs": [
@@ -664,7 +664,7 @@
     "faq": [
       {
         "q": "Are questions family-friendly?",
-        "a": "MVP uses neutral prompts."
+        "a": "Yes, they are neutral prompts."
       }
     ],
     "relatedSlugs": [
