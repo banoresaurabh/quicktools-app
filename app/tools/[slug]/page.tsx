@@ -1,6 +1,19 @@
 import { notFound } from 'next/navigation';
 import ToolRenderer from '@/src/components/ToolRenderer';
 import { getToolBySlug, getRelatedTools } from '@/src/lib/tools';
+import type { Metadata } from "next";
+import tools from "../../../src/data/tools.json";
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const tool = (tools as any[]).find(t => t.slug === params.slug);
+
+  if (!tool) return { title: "Tool not found | QuickTools" };
+
+  return {
+    title: `${tool.title} | QuickTools`,
+    description: tool.description || `Use ${tool.title} instantly in your browser.`,
+  };
+}
 
 export default function ToolPage({ params }: { params: { slug: string } }) {
   const tool = getToolBySlug(params.slug);
