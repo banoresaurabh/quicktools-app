@@ -158,6 +158,8 @@ export default function ToolRenderer({ tool }: { tool: Tool }) {
             whiteSpace: "pre-wrap",
             background: "#fafafa",
             border: "1px solid #eee",
+            wordBreak: "break-word",
+            overflowWrap: "anywhere",
             borderRadius: 12,
             padding: 12,
             fontSize: 13,
@@ -247,7 +249,15 @@ export default function ToolRenderer({ tool }: { tool: Tool }) {
                   }}
                 >
                   <div style={{ fontWeight: 800, color: "#333" }}>{toLabel(k)}</div>
-                  <div style={{ fontWeight: 900 }}>{fmt(v)}</div>
+                  <div
+                      style={{
+                        fontWeight: 900,
+                        wordBreak: "break-word",
+                        overflowWrap: "anywhere",
+                      }}
+                    >
+                      {fmt(v)}
+                    </div>
                 </div>
               ))}
             </div>
