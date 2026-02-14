@@ -127,90 +127,184 @@ export default function ToolRenderer({ tool }: { tool: Tool }) {
         </div>
       )}
 
-      <div
-        style={{ marginTop: 14, paddingTop: 14, borderTop: '1px solid #eee' }}
-      >
-        <div style={{ fontWeight: 800, marginBottom: 6 }}>Output</div>
-        <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
-          {typeof output === 'string'
-            ? output
-            : JSON.stringify(output, null, 2)}
-        </pre>
+<div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #eee" }}>
+  <div style={{ fontWeight: 900, marginBottom: 10, fontSize: 14, letterSpacing: 0.2 }}>
+    Results
+  </div>
 
-        {tool.engineId === 'util.json' && (
-          <div
-            style={{
-              display: 'flex',
-              gap: 10,
-              marginTop: 10,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button onClick={() => set('mode', 'prettify')} style={btn}>
-              Prettify
-            </button>
-            <button onClick={() => set('mode', 'minify')} style={btn}>
-              Minify
-            </button>
-          </div>
-        )}
-        {tool.engineId === 'util.password' && (
-          <div
-            style={{
-              display: 'flex',
-              gap: 10,
-              marginTop: 10,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button onClick={() => set('_regen', Math.random())} style={btn}>
-              Generate
-            </button>
-          </div>
-        )}
-        {tool.engineId === 'util.uuid' && (
-          <div
-            style={{
-              display: 'flex',
-              gap: 10,
-              marginTop: 10,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button onClick={() => set('_regen', Math.random())} style={btn}>
-              Generate
-            </button>
-          </div>
-        )}
-        {tool.engineId === 'util.randomNumber' && (
-          <div
-            style={{
-              display: 'flex',
-              gap: 10,
-              marginTop: 10,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button onClick={() => set('_regen', Math.random())} style={btn}>
-              Generate
-            </button>
-          </div>
-        )}
-        {tool.engineId === 'util.teamSplit' && (
-          <div
-            style={{
-              display: 'flex',
-              gap: 10,
-              marginTop: 10,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button onClick={() => set('_regen', Math.random())} style={btn}>
-              Split
-            </button>
-          </div>
-        )}
-      </div>
+  {(() => {
+    const isObj = output && typeof output === "object";
+    const outObj = (isObj ? (output as any) : null) as Record<string, any> | null;
+
+    const toLabel = (k: string) =>
+      k
+        .replace(/_/g, " ")
+        .replace(/([a-z0-9])([A-Z])/g, "$1 $2")
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+
+    const fmt = (v: any) => {
+      if (typeof v === "number") return v.toLocaleString("en-IN");
+      if (typeof v === "boolean") return v ? "Yes" : "No";
+      if (v === null || v === undefined) return "—";
+      return String(v);
+    };
+
+    // 1) string output (like JSON prettify result)
+    if (typeof output === "string") {
+      return (
+        <pre
+          style={{
+            margin: 0,
+            whiteSpace: "pre-wrap",
+            background: "#fafafa",
+            border: "1px solid #eee",
+            borderRadius: 12,
+            padding: 12,
+            fontSize: 13,
+            lineHeight: 1.5,
+          }}
+        >
+          {output}
+        </pre>
+      );
+    }
+
+    // 2) error
+    if (outObj && outObj.error) {
+      return (
+        <div
+          style={{
+            background: "#fff5f5",
+            border: "1px solid #ffd6d6",
+            borderRadius: 12,
+            padding: 12,
+            color: "#8a1f1f",
+            fontWeight: 700,
+          }}
+        >
+          {String(outObj.error)}
+        </div>
+      );
+    }
+
+    // 3) object output (most tools)
+    if (outObj) {
+      const entries = Object.entries(outObj).filter(([k]) => k !== "error");
+
+      // Choose a "primary" key if present
+      const preferred = ["emi", "monthlyTakeHome", "tax", "result", "resultDate", "newSalary", "bmi", "newValue", "oldMinusNew", "totalInterest", "totalPayment", "years", "totalDays"];
+      let primaryKey: string | null = null;
+      for (const k of preferred) {
+        if (k in outObj) {
+          primaryKey = k;
+          break;
+        }
+      }
+      if (!primaryKey && entries.length === 1) primaryKey = entries[0][0];
+
+      const primaryVal = primaryKey ? outObj[primaryKey] : null;
+      const secondary = entries.filter(([k]) => k !== primaryKey);
+
+      return (
+        <div
+          style={{
+            border: "1px solid #eee",
+            borderRadius: 14,
+            padding: 14,
+            background: "white",
+          }}
+        >
+          {primaryKey ? (
+            <div style={{ marginBottom: secondary.length ? 12 : 0 }}>
+              <div style={{ fontSize: 12, color: "#666", fontWeight: 800, marginBottom: 6 }}>
+                {toLabel(primaryKey)}
+              </div>
+              <div style={{ fontSize: 28, fontWeight: 900, letterSpacing: -0.2 }}>
+                {fmt(primaryVal)}
+              </div>
+            </div>
+          ) : null}
+
+          {secondary.length ? (
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr",
+                gap: 10,
+              }}
+            >
+              {secondary.map(([k, v]) => (
+                <div
+                  key={k}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: 12,
+                    padding: "10px 12px",
+                    background: "#fafafa",
+                    border: "1px solid #eee",
+                    borderRadius: 12,
+                  }}
+                >
+                  <div style={{ fontWeight: 800, color: "#333" }}>{toLabel(k)}</div>
+                  <div style={{ fontWeight: 900 }}>{fmt(v)}</div>
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      );
+    }
+
+    // 4) fallback
+    return (
+      <pre style={{ margin: 0, whiteSpace: "pre-wrap" }}>
+        {JSON.stringify(output, null, 2)}
+      </pre>
+    );
+  })()}
+
+  {/* Keep your tool-specific action buttons exactly as they are */}
+  {tool.engineId === "util.json" && (
+    <div style={{ display: "flex", gap: 10, marginTop: 10, flexWrap: "wrap" }}>
+      <button onClick={() => set("mode", "prettify")} style={btn}>
+        Prettify
+      </button>
+      <button onClick={() => set("mode", "minify")} style={btn}>
+        Minify
+      </button>
+    </div>
+  )}
+  {tool.engineId === "util.password" && (
+    <div style={{ display: "flex", gap: 10, marginTop: 10, flexWrap: "wrap" }}>
+      <button onClick={() => set("_regen", Math.random())} style={btn}>
+        Generate
+      </button>
+    </div>
+  )}
+  {tool.engineId === "util.uuid" && (
+    <div style={{ display: "flex", gap: 10, marginTop: 10, flexWrap: "wrap" }}>
+      <button onClick={() => set("_regen", Math.random())} style={btn}>
+        Generate
+      </button>
+    </div>
+  )}
+  {tool.engineId === "util.randomNumber" && (
+    <div style={{ display: "flex", gap: 10, marginTop: 10, flexWrap: "wrap" }}>
+      <button onClick={() => set("_regen", Math.random())} style={btn}>
+        Generate
+      </button>
+    </div>
+  )}
+  {tool.engineId === "util.teamSplit" && (
+    <div style={{ display: "flex", gap: 10, marginTop: 10, flexWrap: "wrap" }}>
+      <button onClick={() => set("_regen", Math.random())} style={btn}>
+        Split
+      </button>
+    </div>
+  )}
+</div>
+
     </div>
   );
 }
