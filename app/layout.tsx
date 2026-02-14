@@ -8,6 +8,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="google-site-verification" content="3o9T4IsFJvnI6glqQUDJjf_jrSfw0-ZH48cTHdlbBQ8" />
+      </head>
       <body style={{ margin: 0, fontFamily: "ui-sans-serif, system-ui" }}>
         <div style={{ maxWidth: 980, margin: "0 auto", padding: 16 }}>
           <header style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 16 }}>
