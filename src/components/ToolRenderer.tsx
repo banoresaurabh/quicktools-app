@@ -760,6 +760,41 @@ function compute(tool: any, s: Record<string, any>) {
         totalPayment: Math.round(totalPayment)
       };
     }    
+    case "math.formula": {
+      const cfg = tool.computeConfig || {};
+      const formula = String(cfg.formula || "");
+      const outputKey = String(cfg.outputKey || "result");
+      const decimals = Number.isFinite(cfg.decimals) ? Number(cfg.decimals) : 2;
+    
+      const inputs = (tool.inputsSchema ?? {}) as Record<string, string>;
+      const scope: Record<string, number> = {};
+    
+      for (const k of Object.keys(inputs)) {
+        const raw = (s as any)[k];
+        const n = typeof raw === "number" ? raw : Number(raw);
+        if (!Number.isFinite(n)) return { error: `Enter valid ${k}.` };
+        scope[k] = n;
+      }
+    
+      // allow only numbers, operators, parentheses, dots, spaces, and variable names
+      if (!/^[0-9+\-*/().\s_a-zA-Z]+$/.test(formula)) return { error: "Invalid formula." };
+    
+      const expr = formula.replace(/[a-zA-Z_]\w*/g, (name) => {
+        if (!(name in scope)) return "NaN";
+        return String(scope[name]);
+      });
+    
+      // eslint-disable-next-line no-new-func
+      const out = Function(`"use strict"; return (${expr});`)();
+      if (!Number.isFinite(out)) return { error: "Computation failed." };
+    
+      const round = (x: number, d: number) => {
+        const p = Math.pow(10, d);
+        return Math.round(x * p) / p;
+      };
+    
+      return { [outputKey]: round(out, decimals) };
+    }    
     default:
       return { note: `Engine not implemented: ${engineId}` };
   }
