@@ -2,7 +2,7 @@ import { getAllTools } from '@/src/lib/tools';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://example.com'; // replace later with your domain
+  const base = 'https://quicktools-app-doas.vercel.app'; // replace later with your domain
   const tools = getAllTools();
 
   return [
