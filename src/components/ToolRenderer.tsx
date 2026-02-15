@@ -771,7 +771,130 @@ function compute(tool: any, s: Record<string, any>) {
       };
     }    
     case "math.formula": {
-      const cfg = tool.computeConfig || {};
+      const cfg = (tool.computeConfig || {}) as any;
+    
+      // New mode (recommended): formulaKey -> safe built-in formulas
+      const key = String(cfg.formulaKey || "");
+      if (key) {
+        const parseNumList = (v: any) =>
+          String(v ?? "")
+            .split(/[\s,]+/)
+            .filter(Boolean)
+            .map((x) => {
+              const n = Number(x);
+              if (!Number.isFinite(n)) throw new Error("Invalid number in list");
+              return n;
+            });
+    
+        const F: Record<string, (s: Record<string, any>) => any> = {
+          log10: (s) => {
+            const x = Number(s.x);
+            if (!Number.isFinite(x) || x <= 0) throw new Error("x must be > 0");
+            return Math.log10 ? Math.log10(x) : Math.log(x) / Math.LN10;
+          },
+          log2: (s) => {
+            const x = Number(s.x);
+            if (!Number.isFinite(x) || x <= 0) throw new Error("x must be > 0");
+            return Math.log2 ? Math.log2(x) : Math.log(x) / Math.LN2;
+          },
+          ln: (s) => {
+            const x = Number(s.x);
+            if (!Number.isFinite(x) || x <= 0) throw new Error("x must be > 0");
+            return Math.log(x);
+          },
+          antilog10: (s) => {
+            const x = Number(s.x);
+            if (!Number.isFinite(x)) throw new Error("x is required");
+            return Math.pow(10, x);
+          },
+          pow: (s) => {
+            const x = Number(s.x);
+            const y = Number(s.y);
+            if (!Number.isFinite(x) || !Number.isFinite(y)) throw new Error("x and y required");
+            return Math.pow(x, y);
+          },
+          sqrt: (s) => {
+            const x = Number(s.x);
+            if (!Number.isFinite(x) || x < 0) throw new Error("x must be >= 0");
+            return Math.sqrt(x);
+          },
+    
+          sma: (s) => {
+            const arr = parseNumList(s.prices);
+            if (arr.length === 0) throw new Error("Enter prices");
+            return arr.reduce((a, b) => a + b, 0) / arr.length;
+          },
+          ema: (s) => {
+            const arr = parseNumList(s.prices);
+            const period = Math.floor(Number(s.period));
+            if (arr.length === 0) throw new Error("Enter prices");
+            if (!Number.isFinite(period) || period <= 0) throw new Error("period must be >= 1");
+            const k = 2 / (period + 1);
+            let ema = arr[0];
+            for (let i = 1; i < arr.length; i++) ema = arr[i] * k + ema * (1 - k);
+            return ema;
+          },
+          macd: (s) => {
+            const arr = parseNumList(s.prices);
+            if (arr.length < 2) throw new Error("Enter more prices");
+            const k12 = 2 / 13, k26 = 2 / 27, k9 = 2 / 10;
+            let e12 = arr[0], e26 = arr[0];
+            const macdSeries: number[] = [];
+            for (let i = 1; i < arr.length; i++) {
+              e12 = arr[i] * k12 + e12 * (1 - k12);
+              e26 = arr[i] * k26 + e26 * (1 - k26);
+              macdSeries.push(e12 - e26);
+            }
+            const macd = macdSeries[macdSeries.length - 1];
+            let signal = macdSeries[0] ?? macd;
+            for (let i = 1; i < macdSeries.length; i++) {
+              signal = macdSeries[i] * k9 + signal * (1 - k9);
+            }
+            return { macd, signal, histogram: macd - signal };
+          },
+    
+          pnl: (s) => {
+            const buy = Number(s.buy), sell = Number(s.sell), qty = Number(s.qty);
+            if (!Number.isFinite(buy) || !Number.isFinite(sell) || !Number.isFinite(qty))
+              throw new Error("buy, sell, qty required");
+            const profit = (sell - buy) * qty;
+            const profitPercent = buy === 0 ? null : ((sell - buy) / buy) * 100;
+            return { profit, profitPercent };
+          },
+          breakeven: (s) => {
+            const buy = Number(s.buy), feePercent = Number(s.feePercent);
+            if (!Number.isFinite(buy) || !Number.isFinite(feePercent) || buy <= 0)
+              throw new Error("buy>0 and feePercent required");
+            const f = feePercent / 100;
+            if (f >= 1) throw new Error("feePercent too large");
+            return buy * (1 + f) / (1 - f);
+          },
+          riskReward: (s) => {
+            const entry = Number(s.entry), stop = Number(s.stop), target = Number(s.target);
+            if (!Number.isFinite(entry) || !Number.isFinite(stop) || !Number.isFinite(target))
+              throw new Error("entry, stop, target required");
+            const risk = Math.abs(entry - stop);
+            const reward = Math.abs(target - entry);
+            if (risk === 0) throw new Error("Entry and stop cannot be same");
+            return { risk, reward, rr: reward / risk };
+          },
+        };
+    
+        const fn = F[key];
+        if (!fn) return { error: "Invalid formula." };
+    
+        try {
+          const out = fn(s as any);
+          // normalize single number -> {result: <number>}
+          if (typeof out === "number") return { result: out };
+          return out;
+        } catch (e: any) {
+          return { error: e?.message || "Computation failed." };
+        }
+      }
+    
+      // Backward compatibility (your old eval-based formula)
+      // Keep existing tools working, but don't create NEW tools using this path.
       const formula = String(cfg.formula || "");
       const outputKey = String(cfg.outputKey || "result");
       const decimals = Number.isFinite(cfg.decimals) ? Number(cfg.decimals) : 2;
@@ -786,7 +909,6 @@ function compute(tool: any, s: Record<string, any>) {
         scope[k] = n;
       }
     
-      // allow only numbers, operators, parentheses, dots, spaces, and variable names
       if (!/^[0-9+\-*/().\s_a-zA-Z]+$/.test(formula)) return { error: "Invalid formula." };
     
       const expr = formula.replace(/[a-zA-Z_]\w*/g, (name) => {
@@ -798,13 +920,14 @@ function compute(tool: any, s: Record<string, any>) {
       const out = Function(`"use strict"; return (${expr});`)();
       if (!Number.isFinite(out)) return { error: "Computation failed." };
     
-      const round = (x: number, d: number) => {
+      const roundLocal = (x: number, d: number) => {
         const p = Math.pow(10, d);
         return Math.round(x * p) / p;
       };
     
-      return { [outputKey]: round(out, decimals) };
-    }    
+      return { [outputKey]: roundLocal(out, decimals) };
+    }
+    
     default:
       return { note: `Engine not implemented: ${engineId}` };
   }

@@ -25,4 +25,5 @@ export type EngineId =
   | 'game.reaction'
   | 'game.tictactoe'
   | 'party.truthDare'
-  | 'party.wyr';
+  | 'party.wyr'
+  | 'math.formula';
